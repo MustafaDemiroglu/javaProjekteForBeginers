@@ -1,8 +1,6 @@
 package Day02;
 
-import java.util.Arrays;
-
-public class javadataTypes {
+public class C03_javaDataTypes {
     public static void main ( String [ ] args ) {
         int myNum = 5 ;                 // integer (whole number)
         float myFloatNum = 5.99f ;      // floating point number
