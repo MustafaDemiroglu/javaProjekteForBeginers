@@ -51,7 +51,14 @@ public class A_03_BMI_Rechner {
 		System.out.println("Deine groesse ist: " + groesse);
 		System.out.println("Hier ist dein BMI : " + df.format(bmi));
 		
-
+		// Bedingungen
+		if (bmi < 18.5) {
+			System.out.println("Untergewicht");
+		} else if (bmi < 25) {
+			System.out.println("Normalgewicht");
+		} else {
+			System.out.println("Übergewicht");
+		}
 	}
 
 }

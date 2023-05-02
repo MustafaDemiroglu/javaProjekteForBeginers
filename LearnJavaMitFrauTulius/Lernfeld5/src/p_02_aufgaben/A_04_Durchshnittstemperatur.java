@@ -45,6 +45,13 @@ public class A_04_Durchshnittstemperatur {
 		// Ausgabe
 		System.out.println("Hier ist die durchschnitteliche Temperatur von " + ort + " für von Ihnen gegebenen " + anzahl + " Tagen : " + df.format(durtemp));
 		
+		// Bedingungen
+		
+		if (durtemp <20) {
+			System.out.println("noch kein Sommer");
+		} else {
+			System.out.println("Zeit für T-Shirt");
+		}
 	}
 
 }

@@ -44,6 +44,12 @@ public class A_05_Durchschnittsnote {
 		// Ausgabe
 		System.out.println("Durchschnittliche " + fach + " note : " + df.format(durNote));
 				
+		// Bedingungen
+		if (durNote<2.0) {
+			System.out.println("Sehr gute Lesitungen erbracht");
+		} else {
+			System.out.println("Noch etwas lernen");
+		}
 		
 	}
 

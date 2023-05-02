@@ -33,7 +33,6 @@ public class A_02_Benzinrechner {
 		System.out.println("Getankte Liter: " + df.format(getankteLiter));
 		System.out.println("Gefahrene Strecke: " + df.format(kilometer));
 		System.out.println("Durchschnittsverbrauch : " + df.format(durchschnitt));
-		
 
 	}
 
