@@ -16,6 +16,7 @@ public class D_05_EinkaufsListe {
 		boolean weiter = true ;
 		System.out.println("Erfasse deinen einkauf, beenden mit x");
 		
+		/* Erste Variante
 		while (weiter) {
 			einkauf = scan.nextLine();
 			if(einkauf.equals("x")) {
@@ -25,6 +26,14 @@ public class D_05_EinkaufsListe {
 				einkaufsListe.add(einkauf);
 			}
 		}
+		*/
+		
+		while (!einkauf.equals("x")) {
+			einkauf = scan.nextLine();
+			einkaufsListe.add(einkauf);
+		}
+		
+		einkaufsListe.remove(einkaufsListe.lastIndexOf("x"));
 		
 		for (int i=0;i<einkaufsListe.size();i++) {
 			System.out.println(einkaufsListe.get(i));

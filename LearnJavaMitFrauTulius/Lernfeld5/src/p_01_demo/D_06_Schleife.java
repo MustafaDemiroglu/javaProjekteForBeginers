@@ -17,8 +17,5 @@ public class D_06_Schleife {
 			x++;
 		}
 		
-		
-
 	}
-
 }
