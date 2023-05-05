@@ -82,6 +82,7 @@ public class P_02_Buchhaltung {
         System.out.println("1:Dollar\n2:Euro\n3:Lira"); 
         code=scan.nextInt();
         
+        scan.close();
         System.out.println("Ihr Saldo ist in anderen Währungen das folgende Wert:");
         
         

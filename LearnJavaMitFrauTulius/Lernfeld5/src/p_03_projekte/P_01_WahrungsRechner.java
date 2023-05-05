@@ -126,7 +126,7 @@ public class P_01_WahrungsRechner {
         else {
             System.out.println("Gegeben Code ist nicht rightig");
         }
-    
+    scan.close();
 }
 
 }
