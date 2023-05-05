@@ -1,3 +1,13 @@
+/*  Beschreibung 	:Diese Anwendung fragt den Benutzer die Anzahl der Eingaben für Einahme und  für Kosten
+ * 					 dann fragt für jede einzelne Eingabe und Ausgabe 
+ * 					 danach rechnet die insgesamt Einahnme und Ausgabe sowie Saldo
+ * 					 zulestzt fragt den Benutzer welchen Wahrungstyp er die Eingaben gegeben hat
+ * 					 als Ergebnis bekommt man Saldo in anderen Währungen  	   
+ *  Author			: Maik German, Mahmut Aslan, Mustafa Demiroglu
+ *  Datum 			: 05.05.2023
+ *  Version 		: Operation.Mahlzeit.Number.100
+ * */
+
 package p_03_projekte;
 
 import java.util.Locale;
