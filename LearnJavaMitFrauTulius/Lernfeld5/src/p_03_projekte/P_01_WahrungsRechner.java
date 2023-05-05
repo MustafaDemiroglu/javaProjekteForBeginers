@@ -1,3 +1,10 @@
+/*  Beschreibung 	:Diese Anwendung umtauscht die Wahrungen
+ * 					 Ihr Wahrung ist in anderen Währungen Wert 	   
+ *  Author			: Maik German, Mahmut Aslan, Mustafa Demiroglu
+ *  Datum 			: 05.05.2023
+ *  Version 		: Operation.Mahlzeit.Number.100 :-)
+ * */
+
 package p_03_projekte;
 
 import java.util.*;
