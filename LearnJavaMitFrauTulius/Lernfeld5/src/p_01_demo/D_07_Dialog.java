@@ -9,8 +9,13 @@ public class D_07_Dialog {
 		// TODO
 		
 		JOptionPane.showMessageDialog(null, "Die Nachricht die angezeigt werden ist : ") ;
-		String eingabe = JOptionPane.showInputDialog("Ihr Alter : ") ;
-		System.out.println(eingabe);
+		String eingabe = JOptionPane.showInputDialog("Ihr Benzinverbrauch : ") ;
+		eingabe = eingabe.replace("," , ".") ;
+		
+		
+		
+		
+		
 	}
 
 }
