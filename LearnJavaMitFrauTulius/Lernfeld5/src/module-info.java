@@ -6,4 +6,5 @@
  *
  */
 module Lernfeld5 {
+	requires java.desktop;
 }
