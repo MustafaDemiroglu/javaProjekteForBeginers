@@ -24,6 +24,12 @@ public class A_06_Methoden_Benzinverbrauchsrechner {
 	 * feedbackAnzeigen(liter, strecke, durchschnitt);
 	*/
 	
+	// benutzerEingaben(String anweisung): 
+	public static void benutzerEingaben (String anweisung) {
+		System.out.println("Geben sie bitte benötigte eingabe ein ! " + anweisung + " : " );
+	}
+	
+	
 	// double berechneDurchschnitt(double liter, double strecke):
 	public static double berechneDurchschnitt (double liter, double strecke) {
 		double durchschnitt = (liter / strecke) * 100 ;
@@ -43,7 +49,8 @@ public class A_06_Methoden_Benzinverbrauchsrechner {
 		
 		JOptionPane.showMessageDialog(null, "Hallo! wir rechnen zusammen ob Sie sparsam sind :-) ");
 		
-		String eingabe = JOptionPane.showInputDialog("die gefahrene Strecke in Kilometern :");
+		String eingabe = JOptionPane.showInputDialog("benutzerEingaben(Strecke)");
+		// String eingabe = JOptionPane.showInputDialog("die gefahrene Strecke in Kilometern :");
 		eingabe = eingabe.replace(",", ".");
 		
 		try {
@@ -75,7 +82,7 @@ public class A_06_Methoden_Benzinverbrauchsrechner {
 		
 		
 		
-		if (durchschnitt<12) {
+		if (berechneDurchschnitt(liter, strecke)<12) {
 			System.out.println(" sie sind sehr sparsam");
 		} else {
 			System.out.println("Bitte sparsamer fahren");
