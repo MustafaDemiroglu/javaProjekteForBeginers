@@ -1,21 +1,24 @@
-/* Aufgabenstellung Benzinverbrauchsrechner
-* Ein Benutzer soll aufgefordert werden die gefahrene Strecke in Kilometern und die getankten Liter Kraftstoff einzugeben.
-* Aus den Angaben soll der Durchschnittsverbrauch pro 100 Kilometer berechnet und dem Benutzer angezeigt werden
-* Wenn Durchschnittsverbrauch über 12 Liter liegt Hinweis: „Bitte sparsamer fahren“
-* Nutzen Sie für die Interaktion mit dem Benutzer (Ein- und Ausgabe) die Klasse JOptionPane.
-* Erweiterung: Schreiben Sie folgende Methoden: benutzerEingaben(String anweisung): double
-* berechneDurchschnitt(double liter, double strecke): double feedbackAnzeigen(double liter, double strecke, double durchschnitt):
-* void Rufen Sie die Methoden in der Main-Methode auf: double strecke = benutzerEingaben("Gefahrene Strecke"); double liter = benutzerEingaben("Getankte Liter");
-* double durchschnitt = berechneDurchschnitt(liter, strecke); feedbackAnzeigen(liter, strecke, durchschnitt);
+/* 
+ * Aufgabenstellung Benzinverbrauchsrechner
+ * Ein Benutzer soll aufgefordert werden die gefahrene Strecke in Kilometern und die getankten Liter Kraftstoff einzugeben.
+ * Aus den Angaben soll der Durchschnittsverbrauch pro 100 Kilometer berechnet und dem Benutzer angezeigt werden
+ * Wenn Durchschnittsverbrauch über 12 Liter liegt Hinweis: „Bitte sparsamer fahren“
+ * Nutzen Sie für die Interaktion mit dem Benutzer (Ein- und Ausgabe) die Klasse JOptionPane.
 */
-
 
 package p_02_aufgaben;
 
 import javax.swing.JOptionPane;
 
 public class A_06_Methoden_Benzinverbrauchsrechner {
-
+	
+	/* 
+	 * Erweiterung: Schreiben Sie folgende Methoden: 
+	 * benutzerEingaben(String anweisung): double
+	 * berechneDurchschnitt(double liter, double strecke): double feedbackAnzeigen(double liter, double strecke, double durchschnitt):
+	 * void Rufen Sie die Methoden in der Main-Methode auf: double strecke = benutzerEingaben("Gefahrene Strecke"); double liter = benutzerEingaben("Getankte Liter");
+	 * double durchschnitt = berechneDurchschnitt(liter, strecke); feedbackAnzeigen(liter, strecke, durchschnitt);
+	*/
 	
 	   public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -64,5 +67,8 @@ public class A_06_Methoden_Benzinverbrauchsrechner {
 		}
 
 	}
+	   
+	   
+	   
 
 }
