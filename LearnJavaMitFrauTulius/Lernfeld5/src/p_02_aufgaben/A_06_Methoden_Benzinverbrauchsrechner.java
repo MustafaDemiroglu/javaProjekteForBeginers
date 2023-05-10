@@ -24,6 +24,15 @@ public class A_06_Methoden_Benzinverbrauchsrechner {
 	 * feedbackAnzeigen(liter, strecke, durchschnitt);
 	*/
 	
+	// double berechneDurchschnitt(double liter, double strecke):
+	public static double berechneDurchschnitt (double liter, double strecke) {
+		double durchschnitt = (liter / strecke) * 100 ;
+		System.out.println("Durchschnittsverbrauch pro 100 Kilometer berechnet : " + durchschnitt);
+		return durchschnitt ;
+	}
+	
+	
+	
 	   public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -32,7 +41,7 @@ public class A_06_Methoden_Benzinverbrauchsrechner {
 		double liter;
 		double durchschnitt ;
 		
-		JOptionPane.showMessageDialog(null, "Hallo! wir rechnen zusammen ob sie sparsam sind :-) ");
+		JOptionPane.showMessageDialog(null, "Hallo! wir rechnen zusammen ob Sie sparsam sind :-) ");
 		
 		String eingabe = JOptionPane.showInputDialog("die gefahrene Strecke in Kilometern :");
 		eingabe = eingabe.replace(",", ".");
@@ -61,8 +70,10 @@ public class A_06_Methoden_Benzinverbrauchsrechner {
 		
 		strecke = Double.parseDouble(eingabe);
 		liter = Double.parseDouble(eingabe2);
-		durchschnitt = (liter / strecke) * 100 ;
-		System.out.println("Durchschnittsverbrauch pro 100 Kilometer berechnet : " + durchschnitt);
+		
+		berechneDurchschnitt(liter, strecke);
+		
+		
 		
 		if (durchschnitt<12) {
 			System.out.println(" sie sind sehr sparsam");
