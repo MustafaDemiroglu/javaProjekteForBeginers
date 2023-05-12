@@ -8,6 +8,7 @@
 
 package p_02_aufgaben;
 
+import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
 public class A_06_Methoden_Benzinverbrauchsrechner {
@@ -25,18 +26,38 @@ public class A_06_Methoden_Benzinverbrauchsrechner {
 	*/
 	
 	// benutzerEingaben(String anweisung): 
-	public static void benutzerEingaben (String anweisung) {
-		System.out.println("Geben sie bitte benötigte eingabe ein ! " + anweisung + " : " );
+	public static double benutzerEingaben (String anweisung) {
+		
+		double eingabe = Double.parseDouble(JOptionPane.showInputDialog(anweisung).replace ("," , "."));
+		return eingabe;
 	}
 	
 	
 	// double berechneDurchschnitt(double liter, double strecke):
 	public static double berechneDurchschnitt (double liter, double strecke) {
 		double durchschnitt = (liter / strecke) * 100 ;
-		System.out.println("Durchschnittsverbrauch pro 100 Kilometer berechnet : " + durchschnitt);
 		return durchschnitt ;
 	}
 	
+	// feedbackAnzeigen(liter, strecke, durchschnitt)
+	public static void feedbackAnzeigen(double liter, double strecke, double durchschnitt) {
+		
+		DecimalFormat df = new DecimalFormat("0.00") ;
+		
+		String feedback = "";
+
+		
+		if (berechneDurchschnitt(liter, strecke)<12) {
+			feedback = "Sie sind sehr sparsam. Das ist auch gut für die Umwelt" ;
+		} else {
+			feedback = "Bitte sparsamer fahren. Ihr verlieren Geld und es ist nicht gut für unsere Welt ";
+		}
+		
+		System.out.println("Sie haben mit " + liter + " getankte Benzin " + strecke + " gefahren." );
+		System.out.println("Ihr durchschnittlich Benzinverbrauch ist : " +  df.format(durchschnitt));
+		System.out.println(feedback);
+		
+	}
 	
 	
 	   public static void main(String[] args) {
@@ -49,44 +70,15 @@ public class A_06_Methoden_Benzinverbrauchsrechner {
 		
 		JOptionPane.showMessageDialog(null, "Hallo! wir rechnen zusammen ob Sie sparsam sind :-) ");
 		
-		String eingabe = JOptionPane.showInputDialog("benutzerEingaben(Strecke)");
-		// String eingabe = JOptionPane.showInputDialog("die gefahrene Strecke in Kilometern :");
-		eingabe = eingabe.replace(",", ".");
-		
-		try {
-			// Integer.parseInt()
-			strecke = Double.parseDouble(eingabe);
-
-			System.out.println("die gefahrene strecke in kilometern : " + strecke);
-		} catch (Exception e) {
-			System.out.println("Fehler: " + e);
-		}
+		strecke = benutzerEingaben("Gefahrene Strecke");
+		liter = benutzerEingaben("Getankte Liter");
 		
 		
-		String eingabe2 = JOptionPane.showInputDialog("getankten Liter Kraftstoff:");
-		eingabe2 = eingabe2.replace(",", ".");		
-		
-		try {
-			// Integer.parseInt()
-			liter = Double.parseDouble(eingabe2);
-
-			System.out.println("getankten Liter : " + liter);
-		} catch (Exception e) {
-			System.out.println("Fehler: " + e);
-		}
-		
-		strecke = Double.parseDouble(eingabe);
-		liter = Double.parseDouble(eingabe2);
-		
-		berechneDurchschnitt(liter, strecke);
+		durchschnitt= berechneDurchschnitt(liter, strecke);
+		feedbackAnzeigen(liter, strecke, durchschnitt);
 		
 		
 		
-		if (berechneDurchschnitt(liter, strecke)<12) {
-			System.out.println(" sie sind sehr sparsam");
-		} else {
-			System.out.println("Bitte sparsamer fahren");
-		}
 
 	}
 	   
