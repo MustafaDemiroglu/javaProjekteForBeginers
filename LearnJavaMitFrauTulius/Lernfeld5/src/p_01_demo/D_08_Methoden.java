@@ -45,9 +45,6 @@ public class D_08_Methoden {
 		
 		System.out.println("---------------------------");
 		System.out.println(berechne(42,20));
-		
-		
-		
 
 	}
 
