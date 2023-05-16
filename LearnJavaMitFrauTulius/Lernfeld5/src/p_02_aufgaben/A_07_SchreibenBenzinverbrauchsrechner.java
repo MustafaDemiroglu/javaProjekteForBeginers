@@ -27,12 +27,11 @@
 */
 
 
-
-
 package p_02_aufgaben;
 
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
+import java.io.*;
 
 public class A_07_SchreibenBenzinverbrauchsrechner {
 	// benutzerEingaben(String anweisung): 
@@ -59,12 +58,12 @@ public class A_07_SchreibenBenzinverbrauchsrechner {
 
 			
 			if (berechneDurchschnitt(liter, strecke)<12) {
-				feedback = "Sie sind sehr sparsam. Das ist auch gut für die Umwelt" ;
+				feedback = "Sie sind dieses Mal mit " + liter + " getankte Benzin " + strecke + " gefahren."+"\n\rIhr durchschnittlich Benzinverbrauch ist : " +  df.format(durchschnitt)+ " liter pro 100 km" + "\n\rSie sind sehr sparsam. Das ist auch gut für die Umwelt" ;
 			} else {
-				feedback = "Bitte sparsamer fahren. Ihr verlieren Geld und es ist nicht gut für unsere Welt ";
+				feedback = "Sie sind dieses Mal mit " + liter + " getankte Benzin " + strecke +" gefahren.\"+\"\\n\\rIhr durchschnittlich Benzinverbrauch ist : " +  df.format(durchschnitt)+ " liter pro 100 km" + "\\n\\rSie sind leider überhaupt nicht sparsam.Bitte sparsamer fahren. Sie verlieren Geld und es ist nicht gut für unsere Welt ";
 			}
 			
-			System.out.println("Sie haben mit " + liter + " getankte Benzin " + strecke + " gefahren." );
+			System.out.println("Sie sind mit " + liter + " getankte Benzin " + strecke + " gefahren." );
 			System.out.println("Ihr durchschnittlich Benzinverbrauch ist : " +  df.format(durchschnitt));
 			System.out.println(feedback);
 			
@@ -80,9 +79,9 @@ public class A_07_SchreibenBenzinverbrauchsrechner {
 			String feedback = "";
 
 			if (berechneDurchschnitt(liter, strecke)<12) {
-				feedback = "Sie sind sehr sparsam. Das ist auch gut für die Umwelt" ;
+				feedback = "\nSie sind dieses Mal mit " + liter + " getankte Benzin " + strecke + " gefahren."+"\nIhr durchschnittlich Benzinverbrauch ist : " +  df.format(durchschnitt)+ " liter pro 100 km" + "\nSie sind sehr sparsam. Das ist auch gut für die Umwelt" ;
 			} else {
-				feedback = "Bitte sparsamer fahren. Ihr verlieren Geld und es ist nicht gut für unsere Welt ";
+				feedback = "\nSie sind dieses Mal mit " + liter + " getankte Benzin " + strecke +" gefahren."+"\nIhr durchschnittlich Benzinverbrauch ist : " +  df.format(durchschnitt)+ " liter pro 100 km" + "\nSie sind leider überhaupt nicht sparsam.Bitte sparsamer fahren. Sie verlieren Geld und es ist nicht gut für unsere Welt ";
 			}
 			
 			return feedback;	
@@ -94,9 +93,16 @@ public class A_07_SchreibenBenzinverbrauchsrechner {
 			
 			try {
 				
-				FileReader fr = new FileReader ("")
+				FileWriter fw = new FileWriter ("Benzinverbrauchsrechner.txt", true);
+				BufferedWriter bw = new BufferedWriter (fw);
+				bw.write(feedback);
+				
+				bw.close();
+				fw.close();
+				
 			} catch (Exception e) {
 				// TODO: handle exception
+				System.out.println("Fehler!");
 			}
 			
 		} 
@@ -105,23 +111,18 @@ public class A_07_SchreibenBenzinverbrauchsrechner {
 		   public static void main(String[] args) {
 			// TODO Auto-generated method stub
 			
-			//Variable deklarieren
-			double strecke;
-			double liter;
-			double durchschnitt ;
-			
 			JOptionPane.showMessageDialog(null, "Hallo! wir rechnen zusammen ob Sie sparsam sind :-) ");
 			
-			strecke = benutzerEingaben("Gefahrene Strecke");
-			liter = benutzerEingaben("Getankte Liter");
+			double strecke = benutzerEingaben("Gefahrene Strecke");
+			double liter = benutzerEingaben("Getankte Liter");
+			double durchschnitt= berechneDurchschnitt(liter, strecke);
+			String feedback = feedbackErzeugen (liter, strecke, durchschnitt);
+			
+			dateiSchreiben(feedback);
+			JOptionPane.showMessageDialog(null,feedback);
+			System.out.println(feedback);
 			
 			
-			durchschnitt= berechneDurchschnitt(liter, strecke);
-			feedbackAnzeigen(liter, strecke, durchschnitt);
-			
-			
-			
-
 		}
 
 }
