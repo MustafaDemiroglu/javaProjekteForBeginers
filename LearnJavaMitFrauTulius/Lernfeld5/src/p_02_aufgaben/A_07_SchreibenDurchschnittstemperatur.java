@@ -21,8 +21,8 @@
 */
 
 
+/*
 
-/* 
 package p_02_aufgaben;
 
 import javax.swing.JOptionPane;
@@ -31,7 +31,7 @@ import javax.swing.JOptionPane;
 public class A_07_SchreibenDurchschnittstemperatur {
 
 	public static double[] eingabeTemperaturen(int anzahl) {
-		
+
 		
 		
 		return temperaturen[];
