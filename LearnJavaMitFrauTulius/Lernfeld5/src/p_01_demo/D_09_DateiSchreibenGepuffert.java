@@ -3,7 +3,7 @@ package p_01_demo;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 
-public class D_09_DateiGepuffert {
+public class D_09_DateiSchreibenGepuffert {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
