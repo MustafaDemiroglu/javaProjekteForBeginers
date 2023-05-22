@@ -30,6 +30,7 @@
 package p_02_aufgaben;
 
 import java.text.DecimalFormat;
+import java.time.LocalDate; // import the LocalDate class
 import javax.swing.JOptionPane;
 import java.io.*;
 

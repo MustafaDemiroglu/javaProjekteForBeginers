@@ -23,7 +23,10 @@
 
 package p_02_aufgaben;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.text.DecimalFormat;
+import java.time.LocalDate;
 
 import javax.swing.JOptionPane;
 
@@ -35,7 +38,7 @@ public class A_07_SchreibenDurchschnittstemperatur {
 		double[] temperaturen = new double[anzahl];
 		
 		for (int i=0;i<anzahl; i++) {
-			temperaturen[i] = Double.parseDouble(JOptionPane.showInputDialog("Geben Sie bitte die Temperatur für " + (i+1) + ". Tag ein ").replace ("," , ".")); 
+			temperaturen[i] = Double.parseDouble(JOptionPane.showInputDialog("Geben Sie bitte die Temperatur für den " + (i+1) + ". Tag ein ").replace ("," , ".")); 
 		}
 		return temperaturen;
 	}
@@ -49,6 +52,51 @@ public class A_07_SchreibenDurchschnittstemperatur {
 		return durchschnitt ;
 	}
 	
+	public static void feedbackAnzeigen(String ort, int anzahl, double durchschnitt) {
+		// Wenn Durchschnittstemperatur unter 20 Grad liegt Hinweis: „Noch kein
+		// Sommer“, ansonsten Hinweis: „Zeit für T-Shirt“
+		
+		if (durchschnitt<20) { 
+			JOptionPane.showMessageDialog(null, "Noch kein sommer");
+			} else {
+				JOptionPane.showMessageDialog(null, "Zeit für T-Shirt");
+			}
+		
+		LocalDate datum = LocalDate.now(); // Create a date object
+		DecimalFormat df = new DecimalFormat("0.00") ;
+		JOptionPane.showMessageDialog(null, "Der durchschnittliche Temperatur in " + ort + " für " + anzahl + " Tage beträgt: " + df.format(durchschnitt) +"° C" 
+											+"\nSie haben diese Eingaben am " + datum + " eingegeben" + "\n" );
+	
+	}
+	
+	public static String feedbackErzeugen(String ort, int anzahl, double durchschnitt) {
+		String feedback = null;
+		
+		LocalDate datum = LocalDate.now(); // Create a date object
+		DecimalFormat df = new DecimalFormat("0.00") ;
+		feedback = "Der durchschnittliche Temperatur in " + ort + " für " + anzahl + " Tage beträgt: " + df.format(durchschnitt) +"° C" 
+											+"\nSie haben diese Eingaben am " + datum + " eingegeben" + "\n";
+		
+		
+		return feedback;
+	}
+	
+	public static void dateiSchreiben(String feedback) {
+		
+		try {
+			
+			FileWriter fw = new FileWriter ("DurchschnittTemperatur.txt", true);
+			BufferedWriter bw = new BufferedWriter (fw);
+			bw.write(feedback);
+			
+			bw.close();
+			fw.close();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Fehler!");
+		}
+	} 
 	
 	public static void main(String[] args) {
 		
@@ -63,8 +111,11 @@ public class A_07_SchreibenDurchschnittstemperatur {
 		double[] temperaturen = eingabeTemperaturen(anzahl);
 		double durchschnitt = berechneDurchschnitt (anzahl, temperaturen);
 		
-		DecimalFormat df = new DecimalFormat("0.00") ;
-		JOptionPane.showMessageDialog(null, "Der durchschnittliche Temperatur in " + ort + " für " + anzahl + " Tage beträgt: " + df.format(durchschnitt));
+		feedbackAnzeigen(ort, anzahl, durchschnitt);
+		
+		dateiSchreiben(feedbackErzeugen(ort, anzahl, durchschnitt));
+		
+		
 		
 	}
 	
