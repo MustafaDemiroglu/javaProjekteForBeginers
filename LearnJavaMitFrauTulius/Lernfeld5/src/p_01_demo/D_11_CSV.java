@@ -33,7 +33,7 @@ public class D_11_CSV {
 				if(stHeader.nextToken().equals("Nummer")) {
 					System.out.println(stHeader.nextToken().equals("Nummer"));
 					System.out.println("position. " + j);
-					
+				
 				
 				
 				
