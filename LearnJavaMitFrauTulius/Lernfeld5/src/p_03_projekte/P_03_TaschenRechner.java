@@ -62,9 +62,6 @@ public class P_03_TaschenRechner {
 	
 	
 	public static void main (String[] args) {
-	
-		/*
-		
 		
 		double zahl1;
 		double zahl2;
@@ -118,15 +115,11 @@ public class P_03_TaschenRechner {
 		}
 	           
 		}
-        
-	    
-		
-		
-		
+        		
         JOptionPane.showMessageDialog(null, "Das Ergebnis ist: " + ergebnis, "Ergebnis", JOptionPane.PLAIN_MESSAGE);
 		
         
-        */
+        /*
         
         JFrame meinJFrame = new JFrame();
         meinJFrame.setTitle("JButton Beispiel");
@@ -146,7 +139,7 @@ public class P_03_TaschenRechner {
 
         meinJFrame.setVisible(true);
         
-        
+        */
 
 
 
