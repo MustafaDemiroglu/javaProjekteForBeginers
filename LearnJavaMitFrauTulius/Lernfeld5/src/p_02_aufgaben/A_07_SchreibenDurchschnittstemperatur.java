@@ -21,38 +21,51 @@
 */
 
 
-/*
-
 package p_02_aufgaben;
+
+import java.text.DecimalFormat;
 
 import javax.swing.JOptionPane;
 
 
 public class A_07_SchreibenDurchschnittstemperatur {
 
-	public static double[] eingabeTemperaturen(int anzahl) {
-
+	public static double[] eingabeTemperaturen (int anzahl) {
 		
+		double[] temperaturen = new double[anzahl];
 		
-		return temperaturen[];
+		for (int i=0;i<anzahl; i++) {
+			temperaturen[i] = Double.parseDouble(JOptionPane.showInputDialog("Geben Sie bitte die Temperatur für " + (i+1) + ". Tag ein ").replace ("," , ".")); 
+		}
+		return temperaturen;
 	}
 	
-	public static double berechneDurchschnitt (double[] temperaturen) {
-		
-		return durchschnitt;
+	public static double berechneDurchschnitt (int anzahl, double[] temperaturen) {
+		double insgesamt = 0 ;
+		for (int i=0; i<anzahl;i++) {
+			insgesamt = insgesamt + temperaturen[i];
+		}
+		double durchschnitt = insgesamt/anzahl;
+		return durchschnitt ;
 	}
 	
 	
 	public static void main(String[] args) {
 		
-		double [] temperaturen;
-		double durchschnitt = berechneDurchschnitt (temperaturen);
-		
 		JOptionPane.showMessageDialog(null, " Hallo allerzeit, wie rechnen jetzt zusammen die durchschnittliche Temperatur eurer Stadt.");
 		
 		String ort = JOptionPane.showInputDialog("Geben sie der Ort ein :" );
 		
+		int anzahl = Integer.parseInt(JOptionPane.showInputDialog("für wie viel Tage möchten Sie die Temperaturdurchschnitt rechnen"));
+		JOptionPane.showMessageDialog(null, "Nun brauche ich die Temperaturen");
+		
+		
+		double[] temperaturen = eingabeTemperaturen(anzahl);
+		double durchschnitt = berechneDurchschnitt (anzahl, temperaturen);
+		
+		DecimalFormat df = new DecimalFormat("0.00") ;
+		JOptionPane.showMessageDialog(null, "Der durchschnittliche Temperatur in " + ort + " für " + anzahl + " Tage beträgt: " + df.format(durchschnitt));
+		
 	}
 	
 }
-*/
