@@ -74,7 +74,7 @@ public class A_07_SchreibenDurchschnittstemperatur {
 		
 		LocalDate datum = LocalDate.now(); // Create a date object
 		DecimalFormat df = new DecimalFormat("0.00") ;
-		feedback = "Der durchschnittliche Temperatur in " + ort + " für " + anzahl + " Tage beträgt: " + df.format(durchschnitt) +"° C" 
+		feedback = "\nDer durchschnittliche Temperatur in " + ort + " für " + anzahl + " Tage beträgt: " + df.format(durchschnitt) +"° C" 
 											+"\nSie haben diese Eingaben am " + datum + " eingegeben" + "\n";
 		
 		

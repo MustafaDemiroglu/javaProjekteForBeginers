@@ -42,3 +42,6 @@ Sie sind leider überhaupt nicht sparsam.Bitte sparsamer fahren. Sie verlieren G
 Sie sind dieses Mal mit 60.0 getankte Benzin 80.0 gefahren.
 Ihr durchschnittlich Benzinverbrauch ist : 75,00 liter pro 100 km
 Sie sind leider überhaupt nicht sparsam.Bitte sparsamer fahren. Sie verlieren Geld und es ist nicht gut für unsere Welt 
+Sie sind dieses Mal mit 53.0 getankte Benzin 920.0 gefahren.
+Ihr durchschnittlich Benzinverbrauch ist : 5,76 liter pro 100 km
+Sie sind sehr sparsam. Das ist auch gut für die Umwelt

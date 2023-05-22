@@ -2,3 +2,6 @@ Der durchschnittliche Temperatur in Gießen für 3 Tage beträgt: 10,00° C
 Sie haben diese Eingaben am 2023-05-22 eingegeben
 Der durchschnittliche Temperatur in Adana für 2 Tage beträgt: 45,00° C
 Sie haben diese Eingaben am 2023-05-22 eingegeben
+
+Der durchschnittliche Temperatur in kilis für 3 Tage beträgt: 39,33° C
+Sie haben diese Eingaben am 2023-05-22 eingegeben
