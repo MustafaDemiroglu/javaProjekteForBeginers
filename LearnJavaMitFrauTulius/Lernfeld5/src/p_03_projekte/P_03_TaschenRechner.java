@@ -8,11 +8,13 @@
 
 package p_03_projekte;
 
+import javax.swing.*;
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 import java.io.*;
 
 public class P_03_TaschenRechner {
+	
 
 	public static double addieren (double zahl1, double zahl2) {
 		return zahl1+zahl2;
@@ -61,6 +63,9 @@ public class P_03_TaschenRechner {
 	
 	public static void main (String[] args) {
 	
+		/*
+		
+		
 		double zahl1;
 		double zahl2;
 		double ergebnis = 0;
@@ -78,16 +83,16 @@ public class P_03_TaschenRechner {
 	        zahl2 = Double.parseDouble(JOptionPane.showInputDialog("Wie viel Prozent möchten Sie :"));
 	        ergebnis = prozentRechner(zahl1,zahl2);
 		} else if(operation == "kosinusFunktion") {
-			zahl1 = Double.parseDouble(JOptionPane.showInputDialog("Geben Sie eine Zahl ein (im Gradmaß:"));
+			zahl1 = Double.parseDouble(JOptionPane.showInputDialog("Geben Sie eine Zahl ein (im Gradmaß):"));
 	        ergebnis = kosinusFunktion(zahl1);
 		} else if(operation == "sinusFunktion") {
-			zahl1 = Double.parseDouble(JOptionPane.showInputDialog("Geben Sie eine Zahl ein (im Gradmaß:"));
+			zahl1 = Double.parseDouble(JOptionPane.showInputDialog("Geben Sie eine Zahl ein (im Gradmaß):"));
 	        ergebnis = sinusFunktion(zahl1);
 		} else if(operation == "tangensFunktion") {
-			zahl1 = Double.parseDouble(JOptionPane.showInputDialog("Geben Sie eine Zahl ein (im Gradmaß:"));
+			zahl1 = Double.parseDouble(JOptionPane.showInputDialog("Geben Sie eine Zahl ein (im Gradmaß):"));
 	        ergebnis = tangensFunktion(zahl1);
 		} else if(operation == "kotangensFunktion") {
-			zahl1 = Double.parseDouble(JOptionPane.showInputDialog("Geben Sie eine Zahl ein (im Gradmaß:"));
+			zahl1 = Double.parseDouble(JOptionPane.showInputDialog("Geben Sie eine Zahl ein (im Gradmaß):"));
 	        ergebnis = kotangensFunktion(zahl1);
 		} else {
 			zahl1 = Double.parseDouble(JOptionPane.showInputDialog("Geben Sie die erste Zahl ein:"));
@@ -111,12 +116,40 @@ public class P_03_TaschenRechner {
 	            break;
 	           
 		}
-	        
+	           
 		}
         
 	    
+		
+		
+		
         JOptionPane.showMessageDialog(null, "Das Ergebnis ist: " + ergebnis, "Ergebnis", JOptionPane.PLAIN_MESSAGE);
 		
+        
+        */
+        
+        JFrame meinJFrame = new JFrame();
+        meinJFrame.setTitle("JButton Beispiel");
+        JPanel panel = new JPanel();
+
+        // JButton mit Text "Drück mich" wird erstellt
+        JButton button = new JButton("Drück mich");
+
+        // JButton wird dem Panel hinzugefügt
+        panel.add(button);
+
+        meinJFrame.add(panel);
+
+        // Fenstergröße wird so angepasst, dass
+        // der Inhalt reinpasst
+        meinJFrame.pack();
+
+        meinJFrame.setVisible(true);
+        
+        
+
+
+
 	}
 	
 }
