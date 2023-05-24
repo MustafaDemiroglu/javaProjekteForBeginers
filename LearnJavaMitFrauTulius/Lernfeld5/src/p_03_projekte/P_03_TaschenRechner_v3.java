@@ -1,7 +1,7 @@
 /*
  * Beschreibung : Das ist ein Quantum Taschenrechner
  * Author Projektgruppe Hari, Ehsan, Mustafa
- * Datum 22.05.2023
+ * Datum 24.05.2023 v3
  * Version Quantum Elon Musk 2023 				 
  */
 
@@ -13,7 +13,12 @@ import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 import java.io.*;
 
-public class P_03_TaschenRechner {
+
+
+
+public class P_03_TaschenRechner_v3 {
+	
+	
 	
 
 	public static double addieren (double zahl1, double zahl2) {
@@ -118,7 +123,7 @@ public class P_03_TaschenRechner {
         		
         JOptionPane.showMessageDialog(null, "Das Ergebnis ist: " + ergebnis, "Ergebnis", JOptionPane.PLAIN_MESSAGE);
 		
-
+       
 	}
 	
 }
