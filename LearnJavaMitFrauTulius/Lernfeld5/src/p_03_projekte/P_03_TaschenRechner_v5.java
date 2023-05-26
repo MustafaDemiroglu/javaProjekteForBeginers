@@ -91,6 +91,7 @@ public class P_03_TaschenRechner_v5 extends JFrame implements ActionListener {
     }
 
     private double evaluateExpression(String expression) {
+    	
         return new Object() {
             int index = -1;
             int currentChar;
@@ -195,6 +196,7 @@ public class P_03_TaschenRechner_v5 extends JFrame implements ActionListener {
                 return x;
             }
         }.parse();
+
     }
 
     public static void main(String[] args) {
