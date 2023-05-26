@@ -4,25 +4,25 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class P_03_TaschenRechner_v5 extends JFrame implements ActionListener {
+public class P_03_TaschenRechner_v6 extends JFrame implements ActionListener {
 
     public JTextField display;
     public JButton[] buttons;
     public String[] buttonLabels = {
-    		"1", "2", "3", "/",
-            "4", "5", "6", "*",
-            "7", "8", "9", "-",
-            "0", ".", "=", "+",
-            "sin", "cos", "tan", "√",
-            "^","mod","%","C"       
+        "1", "2", "3", "/",
+        "4", "5", "6", "*",
+        "7", "8", "9", "-",
+        "0", ".", "=", "+",
+        "sin", "cos", "tan", "√",
+        "^","mod","%","C"       
     };
 
     double zahl1;
     double zahl2;
     char operator;
-    boolean ersteKalkulation = true;
+    boolean isFirstCalculation = true;
 
-    public P_03_TaschenRechner_v5() {
+    public P_03_TaschenRechner_v6() {
         setTitle("Quantum Taschenrechner v.ElonMusk");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(440, 600);
@@ -55,15 +55,15 @@ public class P_03_TaschenRechner_v5 extends JFrame implements ActionListener {
 
         switch (command) {
             case "=":
-            	if (ersteKalkulation) {
+                if (isFirstCalculation) {
                     berechnen();
-                    ersteKalkulation = false;
+                    isFirstCalculation = false;
                 } else {
                     berechnen();
                     zahl1 = Double.parseDouble(display.getText()); // Speichern Sie das Ergebnis der vorherigen Berechnung
                     operator = '\0'; // Setzen Sie den Operator für die nächste Berechnung auf null
                 }
-            	break;
+                break;
             case "C":
                 entfern();
                 break;
@@ -72,11 +72,11 @@ public class P_03_TaschenRechner_v5 extends JFrame implements ActionListener {
                 break;
         }
     }
- 
+
     public void entfern() {
-    	display.setText("");
-    	ersteKalkulation = true; // Setzen Sie die Variable isFirstCalculation auf true, um eine neue Berechnung zu starten
-    } 
+        display.setText("");
+        isFirstCalculation = true; // Setzen Sie die Variable isFirstCalculation auf true, um eine neue Berechnung zu starten
+    }
     
     private void berechnen() {
         try {
@@ -87,10 +87,10 @@ public class P_03_TaschenRechner_v5 extends JFrame implements ActionListener {
             display.setText("Error");
         }
     }
-
+    
     private double evaluateExpression(String expression) {
-    	
-        return new Object() {
+        
+    	return new Object() { 
             int index = -1;
             int currentChar;
 
@@ -159,8 +159,9 @@ public class P_03_TaschenRechner_v5 extends JFrame implements ActionListener {
                     }
                 }
             }
-
-            double parseFactor() {
+            
+    	
+            private double parseFactor() {
                 if (currentChar == '+') {
                     eatChar('+');
                     return parseFactor();
@@ -201,17 +202,16 @@ public class P_03_TaschenRechner_v5 extends JFrame implements ActionListener {
                 } else {
                     throw new RuntimeException("Unexpected character: " + (char) currentChar);
                 }
-
+            
                 return x;
             }
-        }.parse();
+    	}
 
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-        	P_03_TaschenRechner_v5 calculator = new P_03_TaschenRechner_v5();
-            calculator.setVisible(true);
-        });
-    }
-}
+            public static void main(String[] args) {
+            	SwingUtilities.invokeLater(() -> {
+                	P_03_TaschenRechner_v6 calculator = new P_03_TaschenRechner_v6();
+                    calculator.setVisible(true);
+                });
+            }
+    	}
+            
