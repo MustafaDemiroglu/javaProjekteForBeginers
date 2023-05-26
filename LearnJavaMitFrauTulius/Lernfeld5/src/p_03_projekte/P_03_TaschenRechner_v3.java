@@ -10,14 +10,61 @@ package p_03_projekte;
 
 import javax.swing.*;
 import java.text.DecimalFormat;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 import java.io.*;
 
 
 
 
-public class P_03_TaschenRechner_v3 {
+public abstract class P_03_TaschenRechner_v3 extends JFrame implements ActionListener {
 	
-	
+	 private JTextField textField;
+	    private double firstNumber;
+	    private String operator;
+
+	    public P_03_TaschenRechner_v3() {
+	        setTitle("Quantum Taschenrechner Elon Musk");
+	        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	        setSize(800, 800);
+	        setResizable(false);
+	        setLocationRelativeTo(null);
+
+	        JPanel panel = new JPanel(new BorderLayout());
+
+	        textField = new JTextField(20);
+	        textField.setPreferredSize(new Dimension (280,40));
+	        textField.setFont(new Font("Arial", Font.PLAIN,20));
+	        textField.setEditable(false);
+	        panel.add(textField, BorderLayout.NORTH);
+
+	        JPanel buttonPanel = new JPanel(new GridLayout(6, 4,20,20));
+
+	        String[] buttonLabels = {
+	                "7", "8", "9", "/",
+	                "4", "5", "6", "*",
+	                "1", "2", "3", "-",
+	                "0", ".", "=", "+",
+	                "sin", "cos", "tan", "√",
+	                "^"
+	        };
+
+	        for (String label : buttonLabels) {
+	            JButton button = new JButton(label);
+	            button.addActionListener(this);
+	            buttonPanel.add(button);
+	        }
+
+	        panel.add(buttonPanel, BorderLayout.CENTER);
+	        add(panel);
+	        pack();
+	        setLocationRelativeTo(null);
+	        setVisible(true);
+	    }
+
 	
 	
 	
@@ -69,25 +116,6 @@ public class P_03_TaschenRechner_v3 {
 	
 	public static void main (String[] args) {
 		
-		
-		JFrame meinJFrame = new JFrame();
-	    meinJFrame.setTitle("JButton Beispiel");
-	    JPanel panel = new JPanel();
-
-	    // JButton mit Text "Drück mich" wird erstellt
-	    JButton button = new JButton("Drück mich");
-
-	    // JButton wird dem Panel hinzugefügt
-	    panel.add(button);
-
-	    meinJFrame.add(panel);
-
-	    // Fenstergröße wird so angepasst, dass
-	    // der Inhalt reinpasst
-	    meinJFrame.pack();
-
-	    meinJFrame.setVisible(true);
-	    
 		
 		double zahl1;
 		double zahl2;

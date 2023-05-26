@@ -13,7 +13,7 @@ public class P_03_Neu_01 extends JFrame implements ActionListener {
             "4", "5", "6", "*",
             "1", "2", "3", "-",
             "0", ".", "=", "+",
-            "cos","sin","tan","cot"
+            
             
     };
 
