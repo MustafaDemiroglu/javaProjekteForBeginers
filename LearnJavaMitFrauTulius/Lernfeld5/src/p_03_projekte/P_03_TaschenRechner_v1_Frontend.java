@@ -4,12 +4,12 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class P_03_TaschenRechnerFrontend extends JFrame {
+public class P_03_TaschenRechner_v1_Frontend extends JFrame {
     JTextField tf;
     Container container;
     JLabel label;
 
-    public P_03_TaschenRechnerFrontend() {
+    public P_03_TaschenRechner_v1_Frontend() {
         container = getContentPane();
         setBounds(0, 0, 500, 300);
         tf = new JTextField(25);
@@ -37,6 +37,6 @@ public class P_03_TaschenRechnerFrontend extends JFrame {
     }
 
     public static void main(String[] args) {
-        new P_03_TaschenRechnerFrontend();
+        new P_03_TaschenRechner_v1_Frontend();
     }
 }

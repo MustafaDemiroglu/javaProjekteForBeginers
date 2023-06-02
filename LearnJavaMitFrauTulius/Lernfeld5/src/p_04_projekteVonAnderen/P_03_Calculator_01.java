@@ -1,4 +1,4 @@
-package p_03_projekte;
+package p_04_projekteVonAnderen;
 
 import java.awt.event.*;
 import java.awt.*;

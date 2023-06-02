@@ -13,7 +13,7 @@ import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 import java.io.*;
 
-public class P_03_TaschenRechner {
+public class P_03_TaschenRechner_v1 {
 	
 
 	public static double addieren (double zahl1, double zahl2) {

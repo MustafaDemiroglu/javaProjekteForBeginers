@@ -5,7 +5,8 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class P_03_TaschenRechner_v4 extends JFrame implements ActionListener {
-    private JTextField textField;
+   
+	private JTextField textField;
     private String input;
 
     public P_03_TaschenRechner_v4() {
