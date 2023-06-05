@@ -28,6 +28,7 @@ public class S_03_Urlaubsgeld {
 		monatsGehalt = scan.nextDouble();
 		System.out.println("Seit Wann arbeiten Sie an dieser Firma" + "\nSchreiben sie nur das Jahr :");
 		int jahr = scan.nextInt();
+		scan.close();
 		
 		LocalDate myObj = LocalDate.now();
 		arbeitsDauer =  myObj.getYear()- jahr ;	
@@ -37,11 +38,11 @@ public class S_03_Urlaubsgeld {
 				if (arbeitsDauer>10) {
 					urlaubsGeld = 1.25*((monatsGehalt/30)*urlaubsTag);
 					System.out.println("Da Sie diesen monat " + urlaubsTag + " Tage Urlaub haben. Und Sie arbeiten seit " + arbeitsDauer +" Jahren in unserer Firma. "
-							+ "\nErhalten Sie diesen Monat zusätzlich " + urlaubsGeld+ " Euro" + " \nWir wünschen Ihnen viel Spaß in Ihrem Urlaub "  );
+							+ "\nErhalten Sie diesen Monat zusätzlich " + urlaubsGeld+ " Euro Urlaubsgeld" + " \nWir wünschen Ihnen viel Spaß in Ihrem Urlaub "  );
 				} else {
 					urlaubsGeld = (monatsGehalt/30)*urlaubsTag;
-					System.out.println("Da Sie diesen monat " + urlaubsTag + "  Urlaub haben. Und arbeiten Sie seit " + arbeitsDauer +" Jahren in unserer Firma. "
-							+ "\nErhalten Sie diesen Monat zusätzlich " + urlaubsGeld + " Euro" + " \nWir wünschen Ihnen viel Spaß in Ihrem Urlaub "  );
+					System.out.println("Da Sie diesen monat " + urlaubsTag + " Tage Urlaub haben. Und arbeiten Sie seit " + arbeitsDauer +" Jahren in unserer Firma. "
+							+ "\nErhalten Sie diesen Monat zusätzlich " + urlaubsGeld + " Euro Urlaubsgeld" + " \nWir wünschen Ihnen viel Spaß in Ihrem Urlaub "  );
 				}
 			} else {
 				urlaubsGeld = 0.00;
