@@ -19,10 +19,13 @@ public class S_01_Zinsen {
 		System.out.println("Zinssatz : ");
 		p = scan.nextDouble();
 		
+		scan.close();
+		
 		do {
 			K1 = K1 * (1+p/100);
 			Jahr++ ;
 		} while (K1<K*2);
+		
 		
 		System.out.println(Jahr);
 
