@@ -21,7 +21,19 @@ public class Garage {
 		flitzer.sagHersteller();
 		System.out.println(flitzer.getFarbe());
 		flitzer.setFarbe("lila");
+		flitzer.aendereHersteller("Fiat");
+		flitzer.sagHersteller();
+		System.out.println(flitzer.getFarbe());
 		
+		System.out.println("----------------------");
+		Auto rennkiste = new Auto ("Chrysler", "pink");
+		rennkiste.sagHersteller();
+		System.out.println(rennkiste.getFarbe());
+		
+		System.out.println("----------------------");
+		Cabrio sommerFlitzer = new Cabrio() ;
+		sommerFlitzer.sagHersteller();
+		sommerFlitzer.fahren();
 		
 	}
 
