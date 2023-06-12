@@ -4,6 +4,7 @@ public class Auto {
 	
 	// Attribute
 	private String hersteller = "BMW";
+	private String farbe = "rot";
 	
 	// Methoden
 	// getter
@@ -14,6 +15,14 @@ public class Auto {
 	// setter
 	void aendereHersteller(String hersteller) {
 		this.hersteller = hersteller ;
+	}
+	
+	public String getFarbe() {
+		return farbe;
+	}
+	
+	public void setFarbe (String farbe) {
+		this.farbe = farbe ;
 	}
 	
 	void fahren() {
@@ -27,6 +36,12 @@ public class Auto {
 	
 	public Auto(String hersteller) {
 		this.hersteller = hersteller ;
+	}
+	
+	
+	public Auto(String hersteller, String farbe) {
+		this.hersteller = hersteller ;
+		this.farbe = farbe;
 	}
 
 	

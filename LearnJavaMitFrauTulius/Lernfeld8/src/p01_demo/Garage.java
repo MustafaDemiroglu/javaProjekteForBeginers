@@ -15,6 +15,14 @@ public class Garage {
 		// herbi.hersteller = "MB" ;
 		herbi.aendereHersteller("MB");
 		meinAuto.sagHersteller();
+		
+		System.out.println("----------------------");
+		Auto flitzer = new Auto();
+		flitzer.sagHersteller();
+		System.out.println(flitzer.getFarbe());
+		flitzer.setFarbe("lila");
+		
+		
 	}
 
 }
