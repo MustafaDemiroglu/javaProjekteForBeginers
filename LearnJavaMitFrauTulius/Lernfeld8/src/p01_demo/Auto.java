@@ -6,8 +6,14 @@ public class Auto {
 	private String hersteller = "BMW";
 	
 	// Methoden
+	// getter
 	void sagHersteller(){
 		System.out.println("Hersteller : " + hersteller);
+	}
+	
+	// setter
+	void aendereHersteller(String hersteller) {
+		this.hersteller = hersteller ;
 	}
 	
 	void fahren() {
@@ -23,18 +29,6 @@ public class Auto {
 		this.hersteller = hersteller ;
 	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Auto meinAuto = new Auto();
-		meinAuto.fahren();
-		meinAuto.sagHersteller() ;
-		
-		System.out.println("----------------------");
-		
-		Auto herbi = new Auto ("Corsa") ;
-		herbi.sagHersteller();
-		herbi.hersteller = "MB";
-		meinAuto.sagHersteller();
-	}
+	
 
 }
