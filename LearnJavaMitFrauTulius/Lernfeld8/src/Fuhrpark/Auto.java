@@ -5,8 +5,29 @@ public class Auto {
 	// Attribut(e)
 	private String hersteller = "VW" ;
 	private String farbe = "schwarz" ;
-	private int kilometerstand = 0 ;
 	
+	// wenn keine modifierangeben -- package --- alle Klassen im gleihen Paket
+	int kilometerstand = 0 ;
+	
+	// Verbunfung Assoziation
+	Fahrer fahrer;
+	
+	// Verbindung Aggegration "locher"
+	// motor kann unabhängig von Auto existieren
+	Motor motor;
+	
+	
+	public void fahren ( int kilometer, Fahrer fahrer) {
+		// Kilometer dem Fahrer anrechnen
+		fahrer.setGefahreneKilometer(kilometer);
+		// Kiloketer die Auto nagerechnet werden
+		kilometerstand = kilometerstand + kilometer ;
+	
+		// prüfen ob Fahrer aktuell ein Fahrzeug fahren kann
+		// fahrer.isFahrStatus()----> liefert true oder false
+		// Hinweis : fahrer kann gerade nicht
+		// parken() ---> fahrStatus = true
+	}
 	
 	// Methode(n)
 	// automatisch generierte getter und setter 
@@ -48,5 +69,10 @@ public class Auto {
 		this.farbe = farbe ;
 		System.out.println("Konstruktor 2");
 	} 
+	
+	public Auto (Motor motor) {
+		this.motor = motor ;
+		System.out.println("Konstruktor Auto mit Motor");
+	}
 
 }

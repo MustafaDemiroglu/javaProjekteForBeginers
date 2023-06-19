@@ -25,5 +25,9 @@ public class Cabrio extends Auto {
 		System.out.println("Konstruktor Cabrio mit Dach");
 		this.dachtyp = dach ;
 	}
+	
+	public Cabrio (String hersteller) {
+		
+	}
 
 }
