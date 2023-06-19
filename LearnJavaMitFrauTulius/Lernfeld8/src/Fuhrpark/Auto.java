@@ -1,4 +1,4 @@
-package Fuhrpark;
+ package Fuhrpark;
 
 public class Auto {
 	
@@ -10,8 +10,8 @@ public class Auto {
 	
 	// Methode(n)
 	// automatisch generierte getter und setter 
-	public String getFarbe() {
-		return farbe;
+	public void getFarbe() {
+		System.out.println("Ich bin " + farbe );
 	}
 	
 	public void setFarbe(String farbe) {

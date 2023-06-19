@@ -10,22 +10,36 @@ public class Garage {
 		
 		Auto standardAuto = new Auto();
 		standardAuto.sagHersteller();
-		System.out.println(standardAuto.getFarbe());
+		// System.out.println(standardAuto.getFarbe());
+		standardAuto.getFarbe();
 		
 		standardAuto.setFarbe("lila");
-		System.out.println(standardAuto.getFarbe());
+		// System.out.println(standardAuto.getFarbe());
+		standardAuto.getFarbe();
 		
 		Auto auto1 = new Auto ("Peugeot") ;
 		auto1.sagHersteller();
-		System.out.println(auto1.getFarbe());
+		// System.out.println(auto1.getFarbe());
+		auto1.getFarbe();
 		
 		Auto auto2 = new Auto("Mercedes", "silber");
 		auto2.sagHersteller();
-		System.out.println(auto2.getFarbe());
+		// System.out.println(auto2.getFarbe());
+		auto2.getFarbe();
 		
 		Auto auto3 = new Auto ("Opel"); 
 		auto3.sagHersteller();
 		
+		Cabrio meinCabrio = new Cabrio();
+		meinCabrio.getFarbe();
+		meinCabrio.oeffneDach();
+		
+		SUV meinSUV = new SUV();
+		meinSUV.starteKubel();
+		meinSUV.getFarbe();
+		
+		Cabrio meinCabrio2 = new Cabrio("Hardtop");
+		meinCabrio2.oeffneDach(); 
 	}
 }
 
