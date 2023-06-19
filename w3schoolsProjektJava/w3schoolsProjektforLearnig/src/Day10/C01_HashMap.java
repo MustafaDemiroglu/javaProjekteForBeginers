@@ -46,6 +46,17 @@ public class C01_HashMap {
             System.out.println("key : " + i  + " value : " + capitalCities.get(i));
         }
 
+        HashMap<String, Integer> people = new HashMap<String, Integer>();
+        people.put("John",32);
+        people.put("Mustafa",39);
+        people.put("Aynur", 34);
+        people.put("Steve",30);
+        people.put("Angie",33);
+
+        for (String i: people.keySet()) {
+            System.out.println(i + " is " + people.get(i) + " years old.");
+        }
+
 
     }
 
