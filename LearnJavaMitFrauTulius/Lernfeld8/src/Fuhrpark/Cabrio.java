@@ -26,8 +26,4 @@ public class Cabrio extends Auto {
 		this.dachtyp = dach ;
 	}
 	
-	public Cabrio (String hersteller) {
-		
-	}
-
 }
