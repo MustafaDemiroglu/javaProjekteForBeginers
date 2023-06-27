@@ -9,7 +9,7 @@ public class Gui {
 	
 	// Breite und Höhe des Fensters
 	public static int width = 570 ;
-	public static int height = 600;
+	public static int height = 620;
 	
 	// offset für spielfeld
 	// Abstand von links
@@ -39,7 +39,7 @@ public class Gui {
 		e = new Elemente();
 		// wo soll Element positioniert werden
 		// Abstand von links Abstand von oben Breite und Höhe
-		e.setBounds(0, 0, 570, 600);
+		e.setBounds(0, 0, 570, 620);
 		
 		// Element dem Frame hinzufügen
 		jf.add(e);
