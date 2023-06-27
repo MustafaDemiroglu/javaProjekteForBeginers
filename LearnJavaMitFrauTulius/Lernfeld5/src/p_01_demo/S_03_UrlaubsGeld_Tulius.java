@@ -9,6 +9,7 @@ public class S_03_UrlaubsGeld_Tulius {
 		double UrlaubsTage;
 		double Gehalt;
 		int BetriebsZugehoerigkeit;
+		double UrlaubsGeld;
 		
 		Scanner scan = new Scanner (System.in) ;
 		
@@ -23,16 +24,18 @@ public class S_03_UrlaubsGeld_Tulius {
 		
 		double UrlaubsGeldProTag = Gehalt/30;
 		
+		scan.close();
+		
 		if (BetriebsZugehoerigkeit>3) {
 			if (BetriebsZugehoerigkeit>10) {
-				double UrlaubsGeld = UrlaubsGeldProTag * UrlaubsTage * 1.25;
+				UrlaubsGeld = UrlaubsGeldProTag * UrlaubsTage * 1.25; 
 			} else {
-				double UrlaubsGeld = UrlaubsGeldProTag * UrlaubsTage;
+				UrlaubsGeld = UrlaubsGeldProTag * UrlaubsTage;
 			}
 		} else {
-			double UrlaubsGeld = 0;
+			UrlaubsGeld = 0;
 		} 
 		
-		System.out.println("UrlaubsGeld : " + );
+		System.out.println("UrlaubsGeld : " + UrlaubsGeld );
 	}
 }
