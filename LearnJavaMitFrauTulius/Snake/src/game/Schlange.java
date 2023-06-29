@@ -11,7 +11,7 @@ public class Schlange {
 	public static Kopf kopf = new Kopf(7,7);
 	
 	// 0 - x Schwanzteilen 
-	ArrayList<Schwanz> schwanz = new ArrayList<>();
+	public static ArrayList<Schwanz> schwanz = new ArrayList<>();
 	
 	
 	public void addSchwanz() {

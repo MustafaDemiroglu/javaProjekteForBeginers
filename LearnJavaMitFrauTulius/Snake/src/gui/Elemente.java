@@ -43,14 +43,24 @@ public class Elemente extends JLabel {
 		// Frucht - zufallsfarbe
 		
 		
-		// Schlange - rot
+		// Schlangenkörper - rot
+		g.setColor(Color.RED);
+		// Fragen wie viele Schwanzteile gibt es? an welcher Position sind sie?
+		for (int i =0; i<Schlange.schwanz.size();i++) {
+			p = Schlange.position(Schlange.schwanz.get(i).getX(), Schlange.schwanz.get(i).getY() );
+			g.fillOval(p.x, p.y, 32, 32);
+		}
 		
 		// Kopf - gelb
 		g.setColor(Color.YELLOW);
 		p = Schlange.position(Schlange.kopf.getX(), Schlange.kopf.getY());
 		g.fillOval(p.x, p.y, 32, 32);
 		
-		// Schlangenkörper / Schwanz
+		
+		
+		
+		
+		
 		
 		// Punkte anzeigen
 		
