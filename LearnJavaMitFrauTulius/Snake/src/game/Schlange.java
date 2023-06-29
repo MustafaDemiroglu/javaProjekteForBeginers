@@ -1,11 +1,14 @@
 package game;
 
+import java.awt.Point;
 import java.util.ArrayList;
+
+import gui.Gui;
 
 public class Schlange {
 	
 	// 1 * kopf
-	Kopf kopf = new Kopf(7,7);
+	public static Kopf kopf = new Kopf(7,7);
 	
 	// 0 - x Schwanzteilen 
 	ArrayList<Schwanz> schwanz = new ArrayList<>();
@@ -24,6 +27,18 @@ public class Schlange {
 	}
 	
 	public void bewegen() {
+		
+	}
+	
+	// Pixel/Punkte in Koordinaten umwandeln
+	public static Point position(int x,int y) {
+		Point p = new Point(0,0);
+		
+		// Felder 32*32
+		// z.B 3 Feld --> 3*32
+		p.x = x*32 + Gui.xoff;
+		p.y = y*32 + Gui.yoff;
+		return p ;
 		
 	}
 

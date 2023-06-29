@@ -13,10 +13,10 @@ public class Gui {
 	
 	// offset für spielfeld
 	// Abstand von links
-	static int xoff = 20;
+	public static int xoff = 20;
 	
 	//Abstand von oben
-	static int yoff = 20;
+	public static int yoff = 20;
 	
 	public void spielFeldAnlagen( ) {
 		// Erzeugt neues Object der Klasse Jframe --> neus Fenster

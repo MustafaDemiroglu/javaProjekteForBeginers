@@ -1,11 +1,17 @@
 package gui;
 
 import javax.swing.JLabel;
+
+import game.Schlange;
+
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
 
 // Elemente erbt von JLabel (extends)
 public class Elemente extends JLabel {
+	
+	Point p;
 
 	public void paint(Graphics g) {
 		super.paint(g);
@@ -35,8 +41,23 @@ public class Elemente extends JLabel {
 		g.drawRect(Gui.xoff, Gui.yoff, 512, 512);
 		
 		
+		// Frucht - zufallsfarbe
 		
-		// Schlange
+		
+		// Schlange - rot
+		
+		// Kopf - gelb
+		g.setColor(Color.YELLOW);
+		p = Schlange.position(Schlange.kopf.getX(), Schlange.kopf.getY());
+		g.fillOval(p.x, p.y, 32, 32);
+		
+		// Schlangenkörper / Schwanz
+		
+		// Punkte anzeigen
+		
+		
+		// Neuzeichnen des fenster
+		repaint();
 		
 	}
 }
