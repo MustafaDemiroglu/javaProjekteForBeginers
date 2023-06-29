@@ -11,7 +11,6 @@ public class Kopf {
 	
 	// Konstruktor
 	public Kopf (int x, int y) {
-		super();
 		this.x=x;
 		this.y=y;
 	}
@@ -38,7 +37,7 @@ public class Kopf {
 		return richtung;
 	}
 	
-	public void setRsictung (Richtung richtung) {
+	public void setRichtung (Richtung richtung) {
 		this.richtung = richtung ;
 	}
 	

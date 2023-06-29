@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import gui.Gui;
 
-public class Schlange {
+public class Spiel {
 	
 	// 1 * kopf
 	public static Kopf kopf = new Kopf(7,7);
@@ -13,6 +13,9 @@ public class Schlange {
 	// 0 - x Schwanzteilen 
 	public static ArrayList<Schwanz> schwanz = new ArrayList<>();
 	
+	public static Frucht frucht = new Frucht();
+	
+	public static boolean waitToMove = false ;
 	
 	public void addSchwanz() {
 		// Spielbeginn --> erstes Element an Kopf ansetzen
@@ -26,9 +29,39 @@ public class Schlange {
 		}
 	}
 	
-	public void bewegen() {
+	public static void bewegen() {
 		
-	}
+		// weitere Schwanzteie --> orinieren sich an position von vorhänger 
+		
+		
+		// erstes Schwanzteil --> orientiert sich an position Kopf
+		
+		
+		// kopf bewegen
+		
+		
+		// Rechts --> x+1
+		// Links --> x-1
+		// Runter --> y+1
+		// Hoch --> y-1
+		
+		switch (kopf.getRichtung()) {
+			case RECHTS:
+				kopf.setX(kopf.getX() + 1);
+				break;
+			case LINKS:
+				kopf.setX(kopf.getX() - 1);
+				break;
+			case HOCH:
+				kopf.setY(kopf.getY() - 1);
+				break;
+			case RUNTER:
+				kopf.setY(kopf.getY() + 1);
+				break;
+		}
+		}
+		
+		
 	
 	// Pixel/Punkte in Koordinaten umwandeln
 	public static Point position(int x,int y) {

@@ -2,6 +2,8 @@ package gui;
 
 import javax.swing.JFrame;
 
+import actions.KeyHandler;
+
 public class Gui {
 	
 	JFrame jf;
@@ -32,6 +34,8 @@ public class Gui {
 		jf.setLayout(null);
 		// Program beenden bei x (Fenster ausschalten)
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jf.addKeyListener(new KeyHandler());
+		
 		// Tastatureingaben werden nur gelesen , wenn Frame den focus hat
 		jf.requestFocus();
 		
