@@ -1,5 +1,7 @@
 package game;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Frucht {
 	
 	int x ;
@@ -7,8 +9,8 @@ public class Frucht {
 	
 	public Frucht() {
 		// Zufallzahlen für x und y
-		this.x = x;
-		this.y = y;
+		this.x = ThreadLocalRandom.current().nextInt(0,15);
+		this.y = ThreadLocalRandom.current().nextInt(0,15);
 	}
 	
 	
