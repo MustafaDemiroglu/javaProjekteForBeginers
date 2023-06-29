@@ -27,7 +27,6 @@ public class Elemente extends JLabel {
 		// Raster/Grid Spielfeld (16*16 Felder)
 		g.setColor(Color.WHITE);
 		for (int x=0;x<16;x++) {
-			g.drawRect(Gui.xoff + x*32 , Gui.yoff, 32, 32);
 			for (int y=0; y<16 ;y++) {
 				g.drawRect(Gui.xoff + x*32 , Gui.yoff + y *32 , 32, 32);
 			} 
