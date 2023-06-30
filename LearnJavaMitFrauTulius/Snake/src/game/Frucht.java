@@ -1,9 +1,6 @@
 package game;
 
 import java.util.concurrent.ThreadLocalRandom;
-
-import gui.Gui;
-
 public class Frucht {
 	
 	int x ;
@@ -14,7 +11,6 @@ public class Frucht {
 		this.x = ThreadLocalRandom.current().nextInt(0,15);
 		this.y = ThreadLocalRandom.current().nextInt(0,15);
 	}
-	
 	
 	// Frucht neu positionieren wenn gefuttert oder nach bestimmter Zeit
 	public void reset( ) {
@@ -39,6 +35,8 @@ public class Frucht {
 		this.y = y;
 	}
 
+	
+	
 	
 
 }
