@@ -19,6 +19,7 @@ public class Main {
 		
 		Frucht frucht = new Frucht();
 		
+		
         // Rufen Sie die Methoden der Frucht-Klasse auf
         System.out.println("Frucht-Position: (" + frucht.getX() + ", " + frucht.getY() + ")");
         
