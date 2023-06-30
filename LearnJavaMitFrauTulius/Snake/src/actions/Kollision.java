@@ -16,6 +16,7 @@ public class Kollision {
 	}
 	
 	
+	
 	// Frucht --> addschwanz(), Punkte
 	public void kollisionFrucht() {
 		if (Spiel.kopf.getX() == Spiel.frucht.getX() && Spiel.kopf.getY() == Spiel.frucht.getY()) {
