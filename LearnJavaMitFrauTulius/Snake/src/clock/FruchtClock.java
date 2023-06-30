@@ -30,7 +30,6 @@ public class FruchtClock {
 		y = random.nextInt(Gui.height);
 	}
 	
-
 	
 
 }
