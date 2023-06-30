@@ -40,8 +40,6 @@ public class Spiel {
 		// kopf bewegen
 		
 		
-		 aktualisiereSchwanz();
-		
 		// Rechts --> x+1
 		// Links --> x-1
 		// Runter --> y+1
@@ -63,22 +61,7 @@ public class Spiel {
 		}
 		}
 		
-	public static void aktualisiereSchwanz() {
-	    // Letztes Schwanzteil bekommt die Position des vorherigen Schwanzteils
-	    for (int i = schwanz.size() - 1; i > 0; i--) {
-	        Schwanz vorherigerSchwanzteil = schwanz.get(i - 1);
-	        Schwanz aktuellerSchwanzteil = schwanz.get(i);
-	        aktuellerSchwanzteil.setX(vorherigerSchwanzteil.getX());
-	        aktuellerSchwanzteil.setY(vorherigerSchwanzteil.getY());
-	    }
-	    
-	    // Erstes Schwanzteil bekommt die Position des Kopfes
-	    if (schwanz.size() > 0) {
-	        Schwanz erstesSchwanzteil = schwanz.get(0);
-	        erstesSchwanzteil.setX(kopf.getX());
-	        erstesSchwanzteil.setY(kopf.getY());
-	    }
-	}	
+
 	
 	// Pixel/Punkte in Koordinaten umwandeln
 	public static Point position(int x,int y) {
