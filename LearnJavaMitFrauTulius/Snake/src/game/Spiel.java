@@ -17,7 +17,7 @@ public class Spiel {
 	
 	public static boolean waitToMove = false ;
 	
-	public void addSchwanz() {
+	public static void addSchwanz() {
 		// Spielbeginn --> erstes Element an Kopf ansetzen
 		if (schwanz.size()<1) {
 		schwanz.add(new Schwanz(kopf.getX(), kopf.getY()));

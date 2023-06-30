@@ -2,6 +2,8 @@ package game;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+import gui.Gui;
+
 public class Frucht {
 	
 	int x ;
@@ -36,8 +38,7 @@ public class Frucht {
 	public void setY(int y) {
 		this.y = y;
 	}
-	
-	
+
 	
 
 }
