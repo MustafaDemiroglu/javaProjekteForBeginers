@@ -18,7 +18,7 @@ public class Main {
 		GameClock gc = new GameClock();
 		
 		Frucht frucht = new Frucht();
-		
+		FruchtClock fc = new FruchtClock();
 		
         // Rufen Sie die Methoden der Frucht-Klasse auf
         System.out.println("Frucht-Position: (" + frucht.getX() + ", " + frucht.getY() + ")");
@@ -30,6 +30,7 @@ public class Main {
         
 		g.spielFeldAnlagen();
 		gc.start();
+		fc.start();
 		
 	}
 
