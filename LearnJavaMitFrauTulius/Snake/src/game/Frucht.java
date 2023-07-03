@@ -11,7 +11,7 @@ public class Frucht {
 		this.x = ThreadLocalRandom.current().nextInt(0,15);
 		this.y = ThreadLocalRandom.current().nextInt(0,15);
 	}
-	
+
 	// Frucht neu positionieren wenn gefuttert oder nach bestimmter Zeit
 	public void reset( ) {
 		this.x = ThreadLocalRandom.current().nextInt(0,15);

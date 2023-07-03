@@ -2,7 +2,7 @@ package game;
 
 import java.awt.Point;
 import java.util.ArrayList;
-
+import java.util.Random;
 import gui.Gui;
 
 public class Spiel {
@@ -15,7 +15,11 @@ public class Spiel {
 	
 	public static Frucht frucht = new Frucht();
 	
+	
+	
 	public static boolean waitToMove = false ;
+
+	public static Object frame;
 	
 	public static void addSchwanz() {
 		// Spielbeginn --> erstes Element an Kopf ansetzen
@@ -65,7 +69,9 @@ public class Spiel {
 				kopf.setY(kopf.getY() + 1);
 				break;
 		}
-		}
+	}
+	
+	
 		
 
 	
