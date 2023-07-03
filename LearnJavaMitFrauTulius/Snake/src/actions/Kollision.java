@@ -18,9 +18,10 @@ public class Kollision {
 	
 	
 	// Frucht --> addschwanz(), Punkte
-	public void kollisionFrucht() {
+	public static void kollisionFrucht() {
 		if (Spiel.kopf.getX() == Spiel.frucht.getX() && Spiel.kopf.getY() == Spiel.frucht.getY()) {
 	        Spiel.addSchwanz();
+	        System.out.println("Hunger");
 	        Spiel.frucht.reset();
 	    }
 	}

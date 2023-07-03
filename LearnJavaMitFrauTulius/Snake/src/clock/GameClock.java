@@ -18,6 +18,7 @@ public class GameClock extends Thread  {
 				sleep(200);
 				Spiel.bewegen();
 				Spiel.waitToMove = false ;
+				Kollision.kollisionFrucht();
 				if(Kollision.kollisionWand()) {
 					// Spiel beenden
 					System.exit(0);

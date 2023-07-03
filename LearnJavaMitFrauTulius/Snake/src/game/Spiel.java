@@ -33,30 +33,27 @@ public class Spiel {
 		
 		// weitere Schwanzteie --> orinieren sich an position von vorhänger 
 		
-		
-		
-		for (int i = 1; i < schwanz.size(); i++) {
-            schwanz.get(i).setX(schwanz.get(i - 1).getX());
-            schwanz.get(i).setY(schwanz.get(i - 1).getY());
-        }
-
-		
-		
-		
-		
-		
+		if(schwanz.size()>=2) {
+			for (int i = schwanz.size()-1;i>=1;i--) {
+				if(schwanz.get(i).isWait()) {
+	            	schwanz.get(i).setWait(false);
+	            } else {
+	            	schwanz.get(i).setX(schwanz.get(i-1).getX());
+	            	schwanz.get(i).setY(schwanz.get(i-1).getY());
+	            }
+			}
+		}
 		
 		// erstes Schwanzteil --> orientiert sich an position Kopf
 		
-		
-		  if (!schwanz.isEmpty()) {
-	            schwanz.get(0).setX(kopf.getX());
-	            schwanz.get(0).setY(kopf.getY());
+		 if (schwanz.size()>=1) {
+	            if(schwanz.get(0).isWait()) {
+	            	schwanz.get(0).setWait(false);
+	            } else {
+	            	schwanz.get(0).setX(kopf.getX());
+	            	schwanz.get(0).setY(kopf.getY());
+	            }
 	        }
-		
-		
-		
-		
 		
 		// kopf bewegen
 		
