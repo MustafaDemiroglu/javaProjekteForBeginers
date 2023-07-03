@@ -6,7 +6,7 @@ public class Schwanz {
 	int y ;
 	
 	// Schwanz darf nicht bewegen, wenn neues Teil angefügt wird
-	boolean wait = true ;
+	
 	
 	public Schwanz (int x, int y) {
 		this.x=x;
@@ -29,13 +29,6 @@ public class Schwanz {
 		this.y = y;
 	}
 	
-	public boolean isWait() {
-		return wait;
-	}
-	
-	public void setWait (boolean wait) {
-		this.wait = wait ;
-	}
 	
 
 }
