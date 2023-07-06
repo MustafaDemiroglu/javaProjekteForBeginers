@@ -71,6 +71,13 @@ public class D_04_Bedingungen {
 			System.out.println("anderer Tag");	
 		}
 		
+		int z = 1;
+		switch(z) {
+		case 1 :
+		case 2 :
+			System.out.println("z ist 1 oder 2");
+		}
+		
 		// Boolean Bedingungen
 		boolean esRegnet = true ;
 		boolean schirmDabei = true ;
