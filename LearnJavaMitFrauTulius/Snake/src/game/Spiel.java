@@ -72,8 +72,6 @@ public class Spiel {
 	}
 	
 	
-		
-
 	
 	// Pixel/Punkte in Koordinaten umwandeln
 	public static Point position(int x,int y) {
