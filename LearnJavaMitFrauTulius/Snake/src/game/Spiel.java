@@ -44,17 +44,18 @@ public class Spiel {
 			}
 		
 		
-		// erstes Schwanzteil --> orientiert sich an position Kopf
+		// Erstes Schwanzteil --> orientiert sich an position Kopf
 		 if (schwanz.size()>=1) {
 			 schwanz.get(0).setX(kopf.getX());
          	 schwanz.get(0).setY(kopf.getY());
 	        }
 		
-		// kopf bewegen
+		// Kopf bewegen
 		// Rechts --> x+1
 		// Links --> x-1
 		// Runter --> y+1
 		// Hoch --> y-1
+		 
 		switch (kopf.getRichtung()) {
 			case RECHTS:
 				kopf.setX(kopf.getX() + 1);
