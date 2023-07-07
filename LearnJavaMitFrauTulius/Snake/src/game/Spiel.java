@@ -35,7 +35,7 @@ public class Spiel {
 	
 	public static void bewegen() {
 		
-		// Weitere Schwanzteie --> orinieren sich an position von vorhänger 
+		// Weitere Schwanzteie --> Orinieren sich an position von vorhänger 
 		if(schwanz.size()>=2) {
 			for (int i = schwanz.size()-1;i>=1;i--) {
 				schwanz.get(i).setX(schwanz.get(i-1).getX());
