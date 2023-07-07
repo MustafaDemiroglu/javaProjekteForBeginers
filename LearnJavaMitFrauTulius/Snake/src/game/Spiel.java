@@ -22,7 +22,7 @@ public class Spiel {
 	public static Object frame;
 	
 	public static void addSchwanz() {
-		// Spielbeginn --> erstes Element an Kopf ansetzen
+		// Spielbeginn --> Erstes Element an Kopf ansetzen
 		if (schwanz.size()<1) {
 		schwanz.add(new Schwanz(kopf.getX(), kopf.getY()));
 		} else {
