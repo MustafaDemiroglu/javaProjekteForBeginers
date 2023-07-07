@@ -7,7 +7,7 @@ import gui.Gui;
 
 public class Spiel {
 	
-	// 1 * kopf
+	// 1 * Kopf
 	public static Kopf kopf = new Kopf(7,7);
 	
 	// 0 - x Schwanzteilen 
