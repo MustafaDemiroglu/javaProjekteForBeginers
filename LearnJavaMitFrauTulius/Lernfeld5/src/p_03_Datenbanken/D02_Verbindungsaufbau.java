@@ -1,5 +1,6 @@
 package p_03_Datenbanken;
 
+import java.sql.*;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -18,6 +19,8 @@ public class D02_Verbindungsaufbau {
 		String pass = "";
 		String url = "jdbc:mysql://127.0.0.1/";
 		
+		Connection connection = null;
+		Statement statement = null;
 		
 		// Treibertest
 		
@@ -30,8 +33,10 @@ public class D02_Verbindungsaufbau {
 		
 		// Verbindung zur DB herstellen
 		try {
-			DriverManager.getConnection(url,user,pass);
-		} catch (SQLException e) {
+			connection = DriverManager.getConnection(url,user,pass);
+			statement = connection.createStatement();
+			System.out.println("Verbindung zur DB hergestellt");
+		} catch (SQLException error) {
 			// TODO: handle exception
 			System.out.println("Verbindung zur DB nicht möglich");
 			error.getStackTrace();
