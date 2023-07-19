@@ -4,7 +4,7 @@ import java.sql.*;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class D02_Verbindungsaufbau {
+public class D03_Select {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -52,7 +52,27 @@ public class D02_Verbindungsaufbau {
 		// 2. Befehle an DB senden unr Ergebnis (ResultSet) empfangen
 		// 3. ResultSet weiterverarbeiten
 		
-		
+		try {
+			// 1.
+			sql = "SELECT * from personen";
+			// 2.
+			ResultSet rs = statement.executeQuery(sql);
+			// 3.
+			while (rs.next()) {
+				int id = rs.getInt("PersonID");
+				String name = rs.getString("Name");
+				String vorname = rs.getString("Vorname");
+				double groesse = rs.getDouble("Groesse");
+				double gewicht = rs.getDouble("Gewicht");
+				String kategorie = rs.getString("Kategorie");
+				System.out.println(id + " : " + name + " , " + vorname + " , " + groesse + " , " + gewicht + " , " + kategorie);
+				
+			}
+		} catch (SQLException e) {
+			System.out.println("SQL Befehle fehlerhaft : " + sql);
+			e.printStackTrace();
+		}
+		 
 		
 		
 		// DB-Verbindung beenden
