@@ -41,6 +41,23 @@ public class D02_Verbindungsaufbau {
 			System.out.println("Verbindung zur DB nicht möglich");
 			error.getStackTrace();
 		}
+		
+		// Arbeiten mit der DB
+		
+		
+		
+		// DB-Verbindung beenden
+		
+		try {
+			connection.close();
+			System.out.println("Datenbank erfolgreich geschlossen");
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			System.out.println("DB konnte nicht geschlossen werden");
+		}
+		
+		
 
 	}
 
