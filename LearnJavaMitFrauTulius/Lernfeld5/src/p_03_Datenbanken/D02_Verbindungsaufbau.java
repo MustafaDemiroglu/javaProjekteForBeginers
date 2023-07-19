@@ -17,8 +17,7 @@ public class D02_Verbindungsaufbau {
 		// Standaruser bei xampp
 		String user = "root";
 		String pass = "";
-		String url = "jdbc:mysql://127.0.0.1/";
-		
+		String url = "jdbc:mysql://127.0.0.1/" +database;
 		Connection connection = null;
 		Statement statement = null;
 		
@@ -61,11 +60,17 @@ public class D02_Verbindungsaufbau {
 			// 3.
 			while (rs.next()) {
 				int id = rs.getInt("PersonID");
-				System.out.println(id);
+				String name = rs.getString("Name");
+				String vorname = rs.getString("Vorname");
+				double groesse = rs.getDouble("Groesse");
+				double gewicht = rs.getDouble("Gewicht");
+				String kategorie = rs.getString("Kategorie");
+				System.out.println(id + " : " + name + " , " + vorname + " , " + groesse + " , " + gewicht + " , " + kategorie);
+				
 			}
 		} catch (SQLException e) {
-			// TODO: handle exception
 			System.out.println("SQL Befehle fehlerhaft : " + sql);
+			e.printStackTrace();
 		}
 		 
 		
