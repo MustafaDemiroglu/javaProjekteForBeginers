@@ -22,6 +22,8 @@ public class D02_Verbindungsaufbau {
 		Connection connection = null;
 		Statement statement = null;
 		
+		String sql = "";
+		
 		// Treibertest
 		
 		try {
@@ -43,7 +45,29 @@ public class D02_Verbindungsaufbau {
 		}
 		
 		// Arbeiten mit der DB
+		// SELECT - Abfrage von Daten
+		// SELECT * from personen
+		// * bedeutet ALLES
 		
+		// 1. SQL-Befel formulieren
+		// 2. Befehle an DB senden unr Ergebnis (ResultSet) empfangen
+		// 3. ResultSet weiterverarbeiten
+		
+		try {
+			// 1.
+			sql = "SELECT * from personen";
+			// 2.
+			ResultSet rs = statement.executeQuery(sql);
+			// 3.
+			while (rs.next()) {
+				int id = rs.getInt("PersonID");
+				System.out.println(id);
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception
+			System.out.println("SQL Befehle fehlerhaft : " + sql);
+		}
+		 
 		
 		
 		// DB-Verbindung beenden
