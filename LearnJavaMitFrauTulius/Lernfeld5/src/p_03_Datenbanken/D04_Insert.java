@@ -9,7 +9,9 @@ public class D04_Insert {
         String driver = "com.mysql.cj.jdbc.Driver";
 
         // Database connection details
+        // bei einer realen DB --> Username und url werden von Provider genommen 
         String database = "bmi";
+        // Standaruser bei xampp
         String user = "root";
         String pass = "";
         String url = "jdbc:mysql://127.0.0.1/" + database;
@@ -17,6 +19,7 @@ public class D04_Insert {
         Statement statement = null;
         String sql;
 
+    	// Treibertest
         // Load the database driver
         try {
             Class.forName(driver);
@@ -25,6 +28,7 @@ public class D04_Insert {
             System.out.println("Error loading driver: " + e);
         }
 
+        // Verbindung zur DB herstellen
         // Establish a connection to the database
         try {
             connection = DriverManager.getConnection(url, user, pass);
@@ -35,11 +39,16 @@ public class D04_Insert {
             error.printStackTrace();
         }
 
+        	// INSERT
+     		// 1. Daten vorbereiten, die in DB eingefügt werden soll
+     		// 2. SQL-Befehl formulieren
+     		// 3. Statement an DB übergeben
         // INSERT using a regular SQL statement
         // 1. Prepare data to be inserted into the database
         // 2. Formulate the SQL command
-        sql = "INSERT INTO personen(Name, Vorname) VALUES ('george', 'abci')";
         // 3. Execute the statement and insert the data
+        sql = "INSERT INTO personen(Name, Vorname) VALUES ('george', 'abci')";
+        
         try {
             statement.executeUpdate(sql);
             System.out.println("Data successfully added.");
@@ -48,16 +57,17 @@ public class D04_Insert {
             e.printStackTrace();
         }
 
+        // SQL query with placeholders (prepared statement)
         // INSERT using a prepared statement to prevent SQL injection
         sql = "INSERT INTO personen(Name, Vorname, Groesse, Gewicht, Kategorie) VALUES (?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            String name = "John";
-            String vorname = "Doe";
-            double groesse = 180.0;
+            String name = "Mustafa";
+            String vorname = "Demiroglu";
+            double groesse = 170.0;
             double gewicht = 75.0;
-            String kategorie = "Standard";
-
+            String kategorie = "Übergewicht";
+         // Create a prepared statement to avoid SQL injection
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, vorname);
             preparedStatement.setDouble(3, groesse);
@@ -72,6 +82,7 @@ public class D04_Insert {
             e.printStackTrace();
         }
 
+        // DB-Verbindung beenden
         // Close the database connection
         try {
             connection.close();
