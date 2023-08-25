@@ -1,18 +1,17 @@
 package game;
 
 public class Kopf {
-
+	
 	int x;
 	int y;
 	
-	// Schlange soll bei spielbeginn nach rects schauen
+	// Schlange soll bei Spielbeginn nach rechts schauen
 	Richtung richtung = Richtung.RECHTS;
 	
-	
-	// Konstruktor
-	public Kopf (int x, int y) {
-		this.x=x;
-		this.y=y;
+	// Konstruktor	
+	public Kopf(int x, int y) {
+		this.x = x;
+		this.y = y;
 	}
 	
 	
@@ -20,26 +19,24 @@ public class Kopf {
 	public int getX() {
 		return x;
 	}
-	
 	public void setX(int x) {
-		this.x=x;
+		this.x = x;
 	}
-	
 	public int getY() {
 		return y;
 	}
-	
 	public void setY(int y) {
-		this.y=y;
+		this.y = y;
 	}
-	
+
+
 	public Richtung getRichtung() {
 		return richtung;
 	}
-	
-	public void setRichtung (Richtung richtung) {
-		this.richtung = richtung ;
+
+
+	public void setRichtung(Richtung richtung) {
+		this.richtung = richtung;
 	}
-	
 	
 }
