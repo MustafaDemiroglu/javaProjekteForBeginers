@@ -6,4 +6,5 @@
  *
  */
 module Abwesenheitschecker {
+	requires java.desktop;
 }
