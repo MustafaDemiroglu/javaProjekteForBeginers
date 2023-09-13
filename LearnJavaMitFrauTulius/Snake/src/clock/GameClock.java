@@ -16,13 +16,37 @@ public class GameClock extends Thread {
 				Spiel.bewegen();
 			    Spiel.waitToMove = false;
 			    Kollision.kollisionFrucht();
+			    
+			    // Kollisionen
 			    if(Kollision.kollisionWand() || Kollision.kollisionKoerper()) {
+			    	Spiel.schwanz.clear();
+			    	Spiel.kopf.setX(7);
+			    	Spiel.kopf.setY(7);
+			    	
+			    	// Punkte
+			    	Spiel.punkte=0;
+			    	
 			    	// Spiel beenden
-			    	System.exit(0);
+				    // System.exit(0);
+			    }
+			    
+			    
+			    if (Kollision.kollisionKoerper()) {
+			    	Spiel.schwanz.clear();
+			    	Spiel.kopf.setX(7);
+			    	Spiel.kopf.setY(7);
+			    	
+			    	// Punkte
+			    	Spiel.punkte=0;
+			    	
+			    	// Spiel beenden
+				    // System.exit(0);
 			    }
 				
 				// Warten
-				// Kollisionen
+				
+			    
+			 
 				
 			}catch(Exception e){
 				e.printStackTrace();

@@ -3,6 +3,7 @@ package gui;
 import javax.swing.JFrame;
 
 import actions.KeyHandler;
+import game.Spiel;
 
 public class Gui {
 	
@@ -11,7 +12,7 @@ public class Gui {
 	
 	// Breite und Höhe des Fensters
 	static int width = 570;
-	static int height = 620;
+	static int height = 670;
 	
 	// Offset für Spielfeld
 	// Abstand von links

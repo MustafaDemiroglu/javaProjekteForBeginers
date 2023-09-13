@@ -33,6 +33,13 @@ public class Kollision {
 			// System.out.println("Hunger");
 			Spiel.addSchwanz();
 			Spiel.frucht.reset();
+			
+			// Punkte
+			
+			Spiel.punkte+=1 ;
+			if(Spiel.punkte > Spiel.bestepunkte ) {
+				Spiel.bestepunkte = Spiel.punkte;
+			}
 		}
 		
 	}

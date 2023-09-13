@@ -2,10 +2,12 @@ package game;
 
 import java.awt.Point;
 import java.util.ArrayList;
-
 import gui.Gui;
 
 public class Spiel {
+	
+	// Die Pnnukte un die Bestepukte soll man sehen
+	public static int punkte=0,bestepunkte=0;
 
 	// 1 x Kopf
 	public static Kopf kopf = new Kopf(7, 7);
@@ -16,6 +18,8 @@ public class Spiel {
 	public static Frucht frucht = new Frucht();
 	
 	public static boolean waitToMove = false;
+	
+	
 	
 	public static void addSchwanz() {
 		// Spielbeginn --> erstes Element an Kopf ansetzen
