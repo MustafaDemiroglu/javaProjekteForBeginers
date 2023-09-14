@@ -3,6 +3,8 @@ package actions;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.swing.JOptionPane;
+
 import game.Richtung;
 import game.Spiel;
 
@@ -66,9 +68,48 @@ public class KeyHandler implements KeyListener {
 			}
 			//System.out.println("rechts");
 			break;
-		}
-
+			
+			
+			
+	 	
+			
+			
+		case KeyEvent.VK_ESCAPE:
+            // Wenn ESC gedrückt wird, das Spiel pausieren
+            
+                Spiel.pause = true;
+                Spiel.waitToMove = true;
+                JOptionPane.showMessageDialog(null, "PAUSE");
+            
+            break;
+            
+		case KeyEvent.VK_SPACE:
+            // Wenn Leertaste gedrückt wird, die Pause beenden
+            
+                if (weiterSpielen()) {
+                    Spiel.pause = false;
+                    Spiel.waitToMove = false;
+                }
+            
+            break;
+             
+             
+             
+        
+			
+           }
+	
 	}
+	
+	private boolean weiterSpielen() {
+        int option = JOptionPane.showConfirmDialog(null, "Möchtest du weiterspielen?", "Spiel pausiert", JOptionPane.YES_NO_OPTION);
+        return option == JOptionPane.YES_OPTION;
+    
+	}
+	
+	
+	
+	
 
 	@Override
 	public void keyReleased(KeyEvent e) {

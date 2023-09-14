@@ -20,6 +20,10 @@ public class Spiel {
 	public static boolean waitToMove = false;
 	
 	
+	// Füge die Pause-Variable hinzu
+	public static boolean pause = false;
+	
+	
 	
 	public static void addSchwanz() {
 		// Spielbeginn --> erstes Element an Kopf ansetzen
