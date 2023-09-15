@@ -6,21 +6,14 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.util.Random;
 import javax.swing.JLabel;
+
+import game.Frucht;
 import game.Spiel;
 
 // Elemente erbt von JLabel (extends)
 public class Elemente extends JLabel {
 
 	Point p;
-	
-	Color randomColor;
-
-    public Elemente() {
-        // Erstellen Sie die zufällige Farbe im Konstruktor
-        randomColor = generateRandomColor();
-    }
-
-	
 	
 	public void paint(Graphics g) {
 		super.paint(g);
@@ -46,8 +39,8 @@ public class Elemente extends JLabel {
 		g.drawRect(Gui.xoff, Gui.yoff, 512, 512);
 		
 
-		// Frucht - Verwenden Sie die zuvor generierte zufällige Farbe
-        g.setColor(randomColor);
+		// Frucht
+        g.setColor(Frucht.fruchtFarbe);
         p = Spiel.position(Spiel.frucht.getX(), Spiel.frucht.getY());
         g.fillRect(p.x, p.y, 32, 32);
 		
@@ -62,7 +55,6 @@ public class Elemente extends JLabel {
 			g.fillOval(p.x, p.y, 32, 32);
 		}
 		
-		
 		// Kopf - gelb
 		g.setColor(Color.YELLOW);
 		p = Spiel.position(Spiel.kopf.getX(), Spiel.kopf.getY());
@@ -70,6 +62,7 @@ public class Elemente extends JLabel {
 		
 		
 		// Punkte anzeigen
+		
 		g.setColor(Color.GREEN);
 		g.setFont(new Font("Arial", Font.BOLD,20));
 		g.drawString("Punkte:", 110, 560);
@@ -84,19 +77,9 @@ public class Elemente extends JLabel {
 		g.setFont(new Font("Georgia", Font.ITALIC, 12));
 		g.setColor(Color.BLACK);
 		g.drawString("Programmiert von Mustafa Demiroglu", 320, 620);
-		
-		
+			
 		// Neuzeichnen des Fenster
 		repaint();
 		
 	}
-	
-	private Color generateRandomColor() {
-        Random rand = new Random();
-        int red = rand.nextInt(256);
-        int green = rand.nextInt(256);
-        int blue = rand.nextInt(256);
-        return new Color(red, green, blue);
-    }
-
 }

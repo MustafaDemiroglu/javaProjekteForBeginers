@@ -33,7 +33,6 @@ public class KeyHandler implements KeyListener {
 			// Darf nur gehen, wenn er gerade nicht wartet... z.B. wegen Neuzeichen,
 			// Tasteneingabe
 
-
 			if (!(Spiel.kopf.getRichtung() == Richtung.RUNTER) && !Spiel.waitToMove) {
 				Spiel.kopf.setRichtung(Richtung.HOCH);
 				// Warten lassen ...
@@ -67,47 +66,39 @@ public class KeyHandler implements KeyListener {
 				Spiel.waitToMove = true;
 			}
 			//System.out.println("rechts");
-			break;
-			
-			
-			
-	 	
-			
+			break;	
 			
 		case KeyEvent.VK_ESCAPE:
             // Wenn ESC gedrückt wird, das Spiel pausieren
-            
-                Spiel.pause = true;
-                Spiel.waitToMove = true;
-                JOptionPane.showMessageDialog(null, "PAUSE");
-            
+			Spiel.pause = true;
+            Spiel.waitToMove = true;
+            JOptionPane.showMessageDialog(null, "PAUSE");
             break;
             
 		case KeyEvent.VK_SPACE:
+		case KeyEvent.VK_ENTER:	
             // Wenn Leertaste gedrückt wird, die Pause beenden
-            
                 if (weiterSpielen()) {
                     Spiel.pause = false;
                     Spiel.waitToMove = false;
-                }
-            
+                } else {
+                	// Das spiel enden während der Pause
+                	int option1 = JOptionPane.showConfirmDialog(null, "Möchtest du das Spiel jetzt beenden?", "Spiel wird ausgeschlossen", JOptionPane.YES_NO_OPTION);
+			    	if (option1 == JOptionPane.YES_OPTION) {
+			    		// Spiel beenden
+					    System.exit(0);
+					    }
+			    	}   
             break;
-             
-             
-             
-        
-			
-           }
-	
+		}
 	}
+            
 	
-	private boolean weiterSpielen() {
+	public static boolean weiterSpielen() {
         int option = JOptionPane.showConfirmDialog(null, "Möchtest du weiterspielen?", "Spiel pausiert", JOptionPane.YES_NO_OPTION);
         return option == JOptionPane.YES_OPTION;
     
 	}
-	
-	
 	
 	
 
