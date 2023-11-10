@@ -5,5 +5,6 @@
  * @author IT_Admin
  *
  */
-module TeilnehmerVerwaltung {
+module TeilnehmerListe {
+	requires java.desktop;
 }
