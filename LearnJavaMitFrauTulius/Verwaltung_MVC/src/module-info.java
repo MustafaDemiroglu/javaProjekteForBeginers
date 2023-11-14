@@ -6,4 +6,5 @@
  *
  */
 module Verwaltung_MVC {
+	requires java.desktop;
 }
