@@ -195,5 +195,13 @@ public class VerwaltungView {
 		this.liste = liste;
 	}
 	
+	public DefaultListModel getDlm() {
+		return dlm;
+	}
+
+	public void setDlm(DefaultListModel dlm) {
+		this.dlm = dlm;
+	}
+
 
 }
