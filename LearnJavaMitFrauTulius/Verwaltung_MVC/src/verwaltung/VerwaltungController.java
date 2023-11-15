@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import java.util.ArrayList;
 
@@ -20,6 +21,8 @@ public class VerwaltungController {
 
 	private VerwaltungView view;
 	private List<Teilnehmer> model;
+	private String header="";
+	private String vorlauf = "Bisher wurde keine Funktion..."; 
 
 	// Konstruktor
 	public VerwaltungController(VerwaltungView view) {
@@ -27,10 +30,23 @@ public class VerwaltungController {
 		this.model = new ArrayList<Teilnehmer>();
 	}
 
-	
+	public ListSelectionListener getListSelectionListener() {
+			// TODO Auto-generated method stub
+			return new ListSelectionListener() {
+	 
+				@Override
+				public void valueChanged(ListSelectionEvent e) {
+					/// code nur ausfuehren wenn die liste sich nicht inmitten von (neu)aufbauarbeiten befindet
+					if(!e.getValueIsAdjusting()) {
+						updateListe();
+					}
+				}
+				
+			};
+		}
 	
 	// Listener für Liste
-	public void valueChanged(ListSelectionEvent e) {
+	public void updateListe() {
 		// ###### TO-DO: Bei änderung textfelder aktualisieren 
 		
 		
@@ -79,12 +95,25 @@ public class VerwaltungController {
 	
 	// Peform für Buttons
 	public void perform_btn_neu() {
-		System.out.println("Neu wurde geklickt");
-		// Textfelder einlesen
-		// TN erzeugen
-		// TN der Liste hinzufügen addElement()
-		// Zusatzaufgabe optional popup: Prüfen ob alle Felder geschrieben
+		// Lösung von Frau Tulius
+				// Textfelder einlesen
+				String tnr = view.getTfTnr().getText().trim();
+				String gruppe = view.getTfGruppe().getText().trim();
+				String name = view.getTfName().getText().trim();
+				String vorname = view.getTfVorname().getText().trim();
+				if(gruppe.length()<2 || name.length()<2 || vorname.length()<2 || tnr.length()<1) {
+					JOptionPane.showMessageDialog(view.getFrame(),"Es gibt leere Daten");
+				} else {
+					// Tn erzeugen
+					Teilnehmer tn = new Teilnehmer (tnr, gruppe, name, vorname);
+					// TN in der Liste hinzufügen addElement()
+					view.getDlm().addElement(tn);
+				}    
+				
+				// ######## TO-DO : Schauen , ob TN bereits existiert
+				// ######## TO-DO : Tn-Nr automatisch, in einer Reihenfolge geben
 		
+		/*
 		// meine Lösung mit der Hilfe von Michael und von ChatGPT
 		
 		// Daten aus den Textfeldern lesen
@@ -111,18 +140,38 @@ public class VerwaltungController {
 	        view.getTfVorname().setText("");
 	        JOptionPane.showMessageDialog(view.getFrame(), "Ein Neues Element wurde hinzugefügt");
 	    }
-	        	
+	    */
+		
 	}
 	
 	public void perform_btn_aen() {
-		System.out.println("Ändern wurde geklickt");
 		// das angeklickte Element soll geändert werden
+		// lösung von frau tulius
 		// welches Element wurde geklickt? getSelectedIndex()
+		int index = view.getListe().getSelectedIndex();
+		if(index != -1) {
+			String tnr = view.getTfTnr().getText().trim();
+			String gruppe = view.getTfGruppe().getText().trim();
+			String name = view.getTfName().getText().trim();
+			String vorname = view.getTfVorname().getText().trim();
+			if(gruppe.length()<2 || name.length()<2 || vorname.length()<2 || tnr.length()<1) {
+				JOptionPane.showMessageDialog(view.getFrame(),"Eingeben fehlen oder sind nicht korrekt");
+			} else {
+				// Tn erzeugen
+				Teilnehmer tn = new Teilnehmer (tnr, gruppe, name, vorname);
+				// TN in der Liste aktualisieren
+				view.getDlm().set(index,tn);
+			}    
+		} else {
+			JOptionPane.showMessageDialog(view.getFrame(),"Eingeben fehlen oder sind nicht korrekt");
+		}
+		
 		// Lesen was in TextFeldern steht getText() ----- trim()
 		// Teilnehmer Anlegen Teilnehmer()
 		// Teilnehmer in Liste aktualisieren set(index,tn) 
 		
 		
+		/*
 		// Meine Lösung mit der Hilfe von Michael und von ChatGPT
 		
 		// Überprüfen, ob ein Element ausgewählt ist
@@ -146,13 +195,13 @@ public class VerwaltungController {
 	            // Teilnehmer in der Liste aktualisieren
 	            view.getDlm().set(selectedIndex, geaenderterTeilnehmer);
 
-	            /*
+	            
 	            // Optional: Textfelder leeren, nachdem der Teilnehmer geändert wurde
-	            view.getTfTnr().setText("");
-	            view.getTfGruppe().setText("");
-	            view.getTfName().setText("");
-	            view.getTfVorname().setText("");
-	            */
+	            // view.getTfTnr().setText("");
+	            // view.getTfGruppe().setText("");
+	            // view.getTfName().setText("");
+	            // view.getTfVorname().setText("");
+	            
 	            
 	            JOptionPane.showMessageDialog(view.getFrame(), "Ausgewähltes Element wurde geändert");
 	        }
@@ -160,12 +209,32 @@ public class VerwaltungController {
 	        // Anzeigen eines Popup-Fensters, wenn kein Element ausgewählt ist
 	        JOptionPane.showMessageDialog(view.getFrame(), "Kein Element ausgewählt zum Ändern.", "Fehler", JOptionPane.ERROR_MESSAGE);
 	    }
-		
+		*/
 		
 	}
 	
 	public void perform_btn_spe() {
-		System.out.println("Speichern wurde geklickt");
+		
+		// lösung von Frau Tulius
+		try {
+			FileWriter fw = new FileWriter("teilnehmer.csv");
+			BufferedWriter bw = new BufferedWriter (fw);
+			bw.write(header);
+			bw.newLine();
+			
+			for (int i=0; i<view.getDlm().size(); i++ ) {
+				String tnToCsv = ((Teilnehmer) view.getDlm().getElementAt(i)).toCSV();
+				bw.write(tnToCsv);
+				bw.newLine();
+			}
+			bw.close();
+			fw.close();
+		} catch (Exception e) {
+			System.out.println("Fehler beim datei Speichern");
+		}
+		
+		/*
+		// System.out.println("Speichern wurde geklickt");
 		// veränderte /gelöschte/ neu angelegte TN in Datei speichern
 		// FileWriter / BufferReader
 		// Überschriften in Datei schreiben
@@ -173,8 +242,6 @@ public class VerwaltungController {
 		// Mit Schleife die List auslesen und jeden Listenpunkt in DAtei schreiben Teilnehmer.toCSV()
 		// Writer close
 		// try/catch
-		
-		
 		
 		// Meine Lösung mit der Hilfe von Michael und von ChatGPT
 		try {
@@ -203,7 +270,7 @@ public class VerwaltungController {
 	        e.printStackTrace();
 	        JOptionPane.showMessageDialog(view.getFrame(), "Fehler beim Speichern der Daten.", "Fehler", JOptionPane.ERROR_MESSAGE);
 	    }
-		
+		*/
 		
 		
 		
@@ -211,13 +278,27 @@ public class VerwaltungController {
 	}
 	
 	public void perform_btn_loe() {
-		System.out.println("Löschen wurde geklickt");
-		
 		// das angeklickte Listenelement muss aus der Liste entfernt werden
-		// welches element wurde ausgewählt? getSelectedIndex()
-		// remove()
-		// Textfelder "leeren" setText()
 		
+		// Lösung von Frau Tulius
+		// welches element wurde ausgewählt? getSelectedIndex()
+				int index= view.getListe().getSelectedIndex();
+				if (index != -1) {
+					int selectedIndex = view.getListe().getSelectedIndex();	
+					// Element aus der Liste entfernen
+					// remove()
+					view.getTfTnr().setText("");
+					view.getTfGruppe().setText("");
+					view.getTfName().setText("");
+					view.getTfVorname().setText("");
+					// Textfelder "leeren" setText()
+					view.getDlm().remove(selectedIndex);
+				} else {
+					// Anzeigen eines Popup-Fensters, wenn kein Element ausgewählt ist
+			        JOptionPane.showMessageDialog(view.getFrame(), "Kein Element ausgewählt zum Löschen.");
+				}
+		
+		/*
 		// Meine Lösung mit der Hilfe von ChatGPT
 		// Überprüfen, ob ein Element ausgewählt ist
 		if(!view.getListe().isSelectionEmpty()) {
@@ -239,9 +320,7 @@ public class VerwaltungController {
 			// Anzeigen eines Popup-Fensters, wenn kein Element ausgewählt ist
 	        JOptionPane.showMessageDialog(view.getFrame(), "Kein Element ausgewählt zum Löschen.");
 		}
-		
-
-		
+		*/
 		
 	}
 	
@@ -282,5 +361,6 @@ public class VerwaltungController {
 				System.out.println("Fehler bei der Datei");
 			}
 		}
+
 
 }

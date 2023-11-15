@@ -17,7 +17,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-public class VerwaltungView implements ListSelectionListener {
+public class VerwaltungView {
 
 	private JFrame frame;
 	
@@ -123,7 +123,7 @@ public class VerwaltungView implements ListSelectionListener {
 		// Actionlistener zu Buttons / Liste hinzufügen
 		// Listener ist in Verwaltung Controller ausgelagert
 		// ####### TO-DO ELP: Aufruf 
-		liste.addListSelectionListener(this);
+		liste.addListSelectionListener(controller.getListSelectionListener());
 		btn_neu.addActionListener(controller.getActionListener());
 		btn_aen.addActionListener(controller.getActionListener());
 		btn_spe.addActionListener(controller.getActionListener());
@@ -244,16 +244,6 @@ public class VerwaltungView implements ListSelectionListener {
 
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
-	}
-	
-
-
-	// ####### TO-DO ELP : komplett auslagern in Controller
-	@Override
-	public void valueChanged(ListSelectionEvent e) {
-		// TODO Auto-generated method stub
-		controller.valueChanged(e);
-		
 	}
 
 
