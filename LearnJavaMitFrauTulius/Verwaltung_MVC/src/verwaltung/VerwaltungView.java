@@ -21,6 +21,7 @@ public class VerwaltungView implements ListSelectionListener {
 
 	private JFrame frame;
 	
+	
 	private JPanel mainPanel;
 	private JPanel tnPanel;
 	private JPanel inputPanel;
@@ -28,17 +29,20 @@ public class VerwaltungView implements ListSelectionListener {
 	private JPanel textPanel;
 	private JPanel buttonPanel;
 	private JPanel listePanel;
+	private JPanel vorlaufPanel;
 	
 	private JTextField tfTnr;
 	private JTextField tfGruppe;
 	private JTextField tfName;
 	private JTextField tfVorname;
+	private JTextField vorlauf;
 	
 	private JButton btn_neu;
 	private JButton btn_aen;
 	private JButton btn_spe;
 	private JButton btn_loe;
-	
+	private JButton btn_vor;
+
 	private DefaultListModel dlm = new DefaultListModel();
 	private JList liste = new JList(dlm);
 	
@@ -55,7 +59,7 @@ public class VerwaltungView implements ListSelectionListener {
 		labelPanel.add(new JLabel("TN-Nr",JLabel.RIGHT));
 		labelPanel.add(new JLabel("Gruppe",JLabel.RIGHT));
 		labelPanel.add(new JLabel("Name",JLabel.RIGHT));
-		labelPanel.add(new JLabel("Vornam",JLabel.RIGHT));
+		labelPanel.add(new JLabel("Vorname",JLabel.RIGHT));
 		
 		// textLabel
 		textPanel = new JPanel(new GridLayout(0,1,10,10));
@@ -97,18 +101,28 @@ public class VerwaltungView implements ListSelectionListener {
 		tnPanel.add(inputPanel, BorderLayout.NORTH);
 		tnPanel.add(buttonPanel, BorderLayout.SOUTH);
 		
+		// vorlaufPanel
+		vorlaufPanel = new JPanel(new FlowLayout());
+		vorlaufPanel.add(new JLabel("Vorlauf"));
+		vorlauf =new JTextField(35);
+		vorlaufPanel.add(vorlauf);
+		btn_vor = new JButton("Vorlauf leeren");
+		vorlaufPanel.add(btn_vor);
+		
+		
 		// mainPanel
 		mainPanel = new JPanel(new BorderLayout(0,10));
 		// Leerer Rahmen für Abstand (top, left, bottom, right)
 		mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		mainPanel.add(tnPanel, BorderLayout.WEST);
 		mainPanel.add(listePanel, BorderLayout.CENTER);
+		mainPanel.add(vorlaufPanel, BorderLayout.SOUTH);
 		
 		
 		
 		// Actionlistener zu Buttons / Liste hinzufügen
 		// Listener ist in Verwaltung Controller ausgelagert
-		// ####### To-DO Aufruf 
+		// ####### TO-DO ELP: Aufruf 
 		liste.addListSelectionListener(this);
 		btn_neu.addActionListener(controller.getActionListener());
 		btn_aen.addActionListener(controller.getActionListener());
@@ -121,7 +135,7 @@ public class VerwaltungView implements ListSelectionListener {
 		// Fenster / frame konfigurieren
 		frame.add(mainPanel);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(600,400);
+		frame.setSize(600,500);
 		frame.setVisible(true);
 		
 		
@@ -158,6 +172,14 @@ public class VerwaltungView implements ListSelectionListener {
 	public void setTfVorname(JTextField tfVorname) {
 		this.tfVorname = tfVorname;
 	}
+	
+	public JTextField getVorlauf() {
+		return vorlauf;
+	}
+
+	public void setVorlauf(JTextField vorlauf) {
+		this.vorlauf = vorlauf;
+	}
 
 	public JButton getBtn_neu() {
 		return btn_neu;
@@ -190,6 +212,15 @@ public class VerwaltungView implements ListSelectionListener {
 	public void setBtn_loe(JButton btn_loe) {
 		this.btn_loe = btn_loe;
 	}
+	
+
+	public JButton getBtn_vor() {
+		return btn_vor;
+	}
+
+	public void setBtn_vor(JButton btn_vor) {
+		this.btn_vor = btn_vor;
+	}
 
 	public JList getListe() {
 		return liste;
@@ -206,7 +237,18 @@ public class VerwaltungView implements ListSelectionListener {
 	public void setDlm(DefaultListModel dlm) {
 		this.dlm = dlm;
 	}
+	
+	public JFrame getFrame() {
+		return frame;
+	}
 
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+	
+
+
+	// ####### TO-DO ELP : komplett auslagern in Controller
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 		// TODO Auto-generated method stub
