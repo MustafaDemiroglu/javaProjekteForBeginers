@@ -28,6 +28,25 @@ public class VerwaltungController {
 	// Listener für Liste
 	public void valueChanged(ListSelectionEvent e) {
 		// ###### TO-DO: Bei änderung textfelder aktualisieren 
+		
+		
+		/*
+		 * if (!e.getValueIsAdjusting()) {
+		/// code nur ausfuehren wenn die liste sich nicht inmitten von (neu)aufbauarbeiten 
+		 * befindet
+			}
+		 */
+		
+		
+		
+		Teilnehmer tn = (Teilnehmer) view.getListe().getSelectedValue();
+		if(tn != null) {
+			// Textfelder aktualisieren
+			view.getTfTnr().setText(tn.getTnr());
+			view.getTfGruppe().setText(tn.getGruppe());
+			view.getTfName().setText(tn.getName());
+			view.getTfVorname().setText(tn.getVorname());
+		}
 	}
 	
 
@@ -74,7 +93,7 @@ public class VerwaltungController {
 	
 	// CSV-Datei einlesen
 		public void leseDatei() {
-			// ###### TO-DO: CSV-Datei einlesen und Werte an Textfelder / Liste übergeben 
+			// CSV-Datei einlesen und Werte an Textfelder / Liste übergeben 
 			
 			try {
 				// Datei öffnen
@@ -99,6 +118,7 @@ public class VerwaltungController {
 					// Teilnehme zur Liste hinzufügen
 					view.getDlm().addElement(tn);	
 				}
+				
 				br.close();
 				fr.close();
 				

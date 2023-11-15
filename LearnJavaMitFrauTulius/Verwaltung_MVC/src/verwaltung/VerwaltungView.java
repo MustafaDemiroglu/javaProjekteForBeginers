@@ -14,8 +14,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
-public class VerwaltungView {
+public class VerwaltungView implements ListSelectionListener {
 
 	private JFrame frame;
 	
@@ -106,6 +108,8 @@ public class VerwaltungView {
 		
 		// Actionlistener zu Buttons / Liste hinzufügen
 		// Listener ist in Verwaltung Controller ausgelagert
+		// ####### To-DO Aufruf 
+		liste.addListSelectionListener(this);
 		btn_neu.addActionListener(controller.getActionListener());
 		btn_aen.addActionListener(controller.getActionListener());
 		btn_spe.addActionListener(controller.getActionListener());
@@ -201,6 +205,13 @@ public class VerwaltungView {
 
 	public void setDlm(DefaultListModel dlm) {
 		this.dlm = dlm;
+	}
+
+	@Override
+	public void valueChanged(ListSelectionEvent e) {
+		// TODO Auto-generated method stub
+		controller.valueChanged(e);
+		
 	}
 
 
