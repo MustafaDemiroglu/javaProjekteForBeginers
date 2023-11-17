@@ -22,7 +22,6 @@ public class VerwaltungController {
 	private VerwaltungView view;
 	private List<Teilnehmer> model;
 	private String header="";
-	private String vorlauf = "Bisher wurde keine Funktion..."; 
 
 	// Konstruktor
 	public VerwaltungController(VerwaltungView view) {
@@ -57,8 +56,6 @@ public class VerwaltungController {
 			}
 		 */
 		
-		
-		
 		Teilnehmer tn = (Teilnehmer) view.getListe().getSelectedValue();
 		if(tn != null) {
 			// Textfelder aktualisieren
@@ -66,6 +63,7 @@ public class VerwaltungController {
 			view.getTfGruppe().setText(tn.getGruppe());
 			view.getTfName().setText(tn.getName());
 			view.getTfVorname().setText(tn.getVorname());
+			
 		}
 	}
 	
@@ -89,10 +87,16 @@ public class VerwaltungController {
 				if(e.getSource() == view.getBtn_loe()) {
 					perform_btn_loe();
 				}
+				if(e.getSource() == view.getBtn_vor()) {
+					perform_btn_vor();
+				}
+				
 			}
 		};	
 	}
 	
+	
+
 	// Peform für Buttons
 	public void perform_btn_neu() {
 		/*
@@ -126,7 +130,8 @@ public class VerwaltungController {
 	    // Prüfen, ob alle Felder ausgefüllt sind (optional)
 	    if (tnr.isEmpty() || gruppe.isEmpty() || name.isEmpty() || vorname.isEmpty()) {
 	        // Optional: Pop-up-Fenster für Fehlermeldung, wenn Felder nicht ausgefüllt sind
-	        JOptionPane.showMessageDialog(view.getFrame(), "Bitte alle Felder ausfüllen.", "Fehler", JOptionPane.ERROR_MESSAGE);
+	    	// JOptionPane.showMessageDialog(view.getFrame(), "Bitte alle Felder ausfüllen.", "Fehler", JOptionPane.ERROR_MESSAGE);
+	    	view.getVorlauf().setText("Bitte alle Felder ausfüllen. Sonst wird den Teilnehmer nicht hinzugefügt.");
 	    } else {
 	        // Teilnehmer-Objekt erstellen
 	        Teilnehmer neuerTeilnehmer = new Teilnehmer(tnr, gruppe, name, vorname);
@@ -139,8 +144,10 @@ public class VerwaltungController {
 	        view.getTfGruppe().setText("");
 	        view.getTfName().setText("");
 	        view.getTfVorname().setText("");
-	        updateListe();
-	        JOptionPane.showMessageDialog(view.getFrame(), "Ein Neues Element wurde hinzugefügt");
+	        view.getVorlauf().setText(neuerTeilnehmer + "wurde als ein neuer Teilnehmer hinzugefügt");
+	        
+	        // JOptionPane.showMessageDialog(view.getFrame(), "Ein Neues Element wurde hinzugefügt");
+	        
 	    }
 	    
 		
@@ -182,6 +189,8 @@ public class VerwaltungController {
 		// Überprüfen, ob ein Element ausgewählt ist
 	    if (!view.getListe().isSelectionEmpty()) {
 	        int selectedIndex = view.getListe().getSelectedIndex();
+	        Teilnehmer vorVorlauf =(Teilnehmer) view.getDlm().get(selectedIndex);
+            String vorherigeVorlauf = vorVorlauf.toString();
 
 	        // Daten aus den Textfeldern lesen
 	        String tnr = view.getTfTnr().getText().trim();
@@ -192,27 +201,30 @@ public class VerwaltungController {
 	        // Prüfen, ob alle Felder ausgefüllt sind (optional)
 	        if (tnr.isEmpty() || gruppe.isEmpty() || name.isEmpty() || vorname.isEmpty()) {
 	            // Optional: Pop-up-Fenster für Fehlermeldung, wenn Felder nicht ausgefüllt sind
-	            JOptionPane.showMessageDialog(view.getFrame(), "Bitte alle Felder ausfüllen.", "Fehler", JOptionPane.ERROR_MESSAGE);
+	            // JOptionPane.showMessageDialog(view.getFrame(), "Kein Element wurde ausgewählt, oder nicht alle Felder ausgefüllt.", "Fehler", JOptionPane.ERROR_MESSAGE);
+	            view.getVorlauf().setText("Noch keinen Teilnehmer wurde ausgewählt, oder niht alle Felder ausgefüllt.");
 	        } else {
 	            // Teilnehmer-Objekt erstellen
 	            Teilnehmer geaenderterTeilnehmer = new Teilnehmer(tnr, gruppe, name, vorname);
+	            String fuerVorlauf = geaenderterTeilnehmer.toString();
 
 	            // Teilnehmer in der Liste aktualisieren
 	            view.getDlm().set(selectedIndex, geaenderterTeilnehmer);
 
 	            
-	             // Optional: Textfelder leeren, nachdem der Teilnehmer geändert wurde
-	             view.getTfTnr().setText("");
-	             view.getTfGruppe().setText("");
-	             view.getTfName().setText("");
-	             view.getTfVorname().setText("");
-	             updateListe();
+	            // Optional: Textfelder leeren, nachdem der Teilnehmer geändert wurde
+	            view.getTfTnr().setText("");
+	            view.getTfGruppe().setText("");
+	            view.getTfName().setText("");
+	            view.getTfVorname().setText("");
 	            
-	            JOptionPane.showMessageDialog(view.getFrame(), "Ausgewähltes Element wurde geändert");
+	            // JOptionPane.showMessageDialog(view.getFrame(), "Ausgewähltes Element wurde geändert");
+	            view.getVorlauf().setText(vorherigeVorlauf + " wurde als neuen Teilnehmer als " +fuerVorlauf +" geändert");
 	        }
 	    } else {
 	        // Anzeigen eines Popup-Fensters, wenn kein Element ausgewählt ist
-	        JOptionPane.showMessageDialog(view.getFrame(), "Kein Element ausgewählt zum Ändern.", "Fehler", JOptionPane.ERROR_MESSAGE);
+	        // JOptionPane.showMessageDialog(view.getFrame(), "Kein Element ausgewählt zum Ändern.", "Fehler", JOptionPane.ERROR_MESSAGE);
+	        view.getVorlauf().setText("Kein Element wurde ausgewählt, oder noch nicht alle Felder ausgefüllt.");
 	    }
 		
 		
@@ -270,11 +282,13 @@ public class VerwaltungController {
 	        writer.close();
 
 	        // Optional: Nachricht über erfolgreiche Speicherung anzeigen
-	        JOptionPane.showMessageDialog(view.getFrame(), "Daten erfolgreich gespeichert.", "Speichern", JOptionPane.INFORMATION_MESSAGE);
+	        // JOptionPane.showMessageDialog(view.getFrame(), "Daten wurden erfolgreich gespeichert.", "Speichern", JOptionPane.INFORMATION_MESSAGE);
+	        view.getVorlauf().setText("Daten wurden erfolgreich gespeichert.");
 	    } catch (IOException e) {
 	        // Fehler abfangen
 	        e.printStackTrace();
-	        JOptionPane.showMessageDialog(view.getFrame(), "Fehler beim Speichern der Daten.", "Fehler", JOptionPane.ERROR_MESSAGE);
+	        // JOptionPane.showMessageDialog(view.getFrame(), "Fehler beim Speichern der Daten.", "Fehler", JOptionPane.ERROR_MESSAGE);
+	        view.getVorlauf().setText("Fehler beim Speichern der Daten.");
 	    }
 		
 		
@@ -308,6 +322,9 @@ public class VerwaltungController {
 			
 			int selectedIndex = view.getListe().getSelectedIndex();
 			
+			Teilnehmer vorVorlauf =(Teilnehmer) view.getDlm().get(selectedIndex);
+            String fuerVorlauf = vorVorlauf.toString();
+			
 			// Element aus der Liste entfernen
 			view.getDlm().remove(selectedIndex);
 			
@@ -317,16 +334,25 @@ public class VerwaltungController {
 			view.getTfName().setText("");
 			view.getTfVorname().setText("");
 			
-			JOptionPane.showMessageDialog(view.getFrame(), "Ausgewähltes Element  wurde gelöscht");
+			// JOptionPane.showMessageDialog(view.getFrame(), "Ausgewähltes Element  wurde gelöscht");
+			view.getVorlauf().setText(fuerVorlauf + " wurde gelöscht.");
 		} else {
 			
 			// Anzeigen eines Popup-Fensters, wenn kein Element ausgewählt ist
-	        JOptionPane.showMessageDialog(view.getFrame(), "Kein Element ausgewählt zum Löschen.");
+	        // JOptionPane.showMessageDialog(view.getFrame(), "Kein Element ausgewählt zum Löschen.");
+	        view.getVorlauf().setText("Keinen Teilnehmer wurde ausgewählt zum Löschen.");
 		}
-		updateListe();
 		
 	}
 	
+	public void perform_btn_vor() {
+		// Vorlauf leeren button entleert die Textfelder und Vorlauf feld
+		view.getTfTnr().setText("");
+		view.getTfGruppe().setText("");
+		view.getTfName().setText("");
+		view.getTfVorname().setText("");
+		view.getVorlauf().setText("");
+	}
 	
 	// CSV-Datei einlesen
 		public void leseDatei() {

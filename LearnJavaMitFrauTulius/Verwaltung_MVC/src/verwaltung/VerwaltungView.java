@@ -122,12 +122,13 @@ public class VerwaltungView {
 		
 		// Actionlistener zu Buttons / Liste hinzufügen
 		// Listener ist in Verwaltung Controller ausgelagert
-		// ####### TO-DO ELP: Aufruf 
+		// Aufruf 
 		liste.addListSelectionListener(controller.getListSelectionListener());
 		btn_neu.addActionListener(controller.getActionListener());
 		btn_aen.addActionListener(controller.getActionListener());
 		btn_spe.addActionListener(controller.getActionListener());
 		btn_loe.addActionListener(controller.getActionListener());
+		btn_vor.addActionListener(controller.getActionListener());
 		
 		// CSV - Datei einlesen - leseDatei() in VerwaltunggsController
 		controller.leseDatei();
