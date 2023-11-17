@@ -95,6 +95,7 @@ public class VerwaltungController {
 	
 	// Peform für Buttons
 	public void perform_btn_neu() {
+		/*
 		// Lösung von Frau Tulius
 				// Textfelder einlesen
 				String tnr = view.getTfTnr().getText().trim();
@@ -109,11 +110,11 @@ public class VerwaltungController {
 					// TN in der Liste hinzufügen addElement()
 					view.getDlm().addElement(tn);
 				}    
-				
+		*/		
 				// ######## TO-DO : Schauen , ob TN bereits existiert
 				// ######## TO-DO : Tn-Nr automatisch, in einer Reihenfolge geben
 		
-		/*
+		
 		// meine Lösung mit der Hilfe von Michael und von ChatGPT
 		
 		// Daten aus den Textfeldern lesen
@@ -138,14 +139,17 @@ public class VerwaltungController {
 	        view.getTfGruppe().setText("");
 	        view.getTfName().setText("");
 	        view.getTfVorname().setText("");
+	        updateListe();
 	        JOptionPane.showMessageDialog(view.getFrame(), "Ein Neues Element wurde hinzugefügt");
 	    }
-	    */
+	    
 		
 	}
 	
 	public void perform_btn_aen() {
 		// das angeklickte Element soll geändert werden
+		
+		/*
 		// lösung von frau tulius
 		// welches Element wurde geklickt? getSelectedIndex()
 		int index = view.getListe().getSelectedIndex();
@@ -165,13 +169,14 @@ public class VerwaltungController {
 		} else {
 			JOptionPane.showMessageDialog(view.getFrame(),"Eingeben fehlen oder sind nicht korrekt");
 		}
+		*/
 		
 		// Lesen was in TextFeldern steht getText() ----- trim()
 		// Teilnehmer Anlegen Teilnehmer()
 		// Teilnehmer in Liste aktualisieren set(index,tn) 
 		
 		
-		/*
+		
 		// Meine Lösung mit der Hilfe von Michael und von ChatGPT
 		
 		// Überprüfen, ob ein Element ausgewählt ist
@@ -196,12 +201,12 @@ public class VerwaltungController {
 	            view.getDlm().set(selectedIndex, geaenderterTeilnehmer);
 
 	            
-	            // Optional: Textfelder leeren, nachdem der Teilnehmer geändert wurde
-	            // view.getTfTnr().setText("");
-	            // view.getTfGruppe().setText("");
-	            // view.getTfName().setText("");
-	            // view.getTfVorname().setText("");
-	            
+	             // Optional: Textfelder leeren, nachdem der Teilnehmer geändert wurde
+	             view.getTfTnr().setText("");
+	             view.getTfGruppe().setText("");
+	             view.getTfName().setText("");
+	             view.getTfVorname().setText("");
+	             updateListe();
 	            
 	            JOptionPane.showMessageDialog(view.getFrame(), "Ausgewähltes Element wurde geändert");
 	        }
@@ -209,12 +214,12 @@ public class VerwaltungController {
 	        // Anzeigen eines Popup-Fensters, wenn kein Element ausgewählt ist
 	        JOptionPane.showMessageDialog(view.getFrame(), "Kein Element ausgewählt zum Ändern.", "Fehler", JOptionPane.ERROR_MESSAGE);
 	    }
-		*/
+		
 		
 	}
 	
 	public void perform_btn_spe() {
-		
+		/*
 		// lösung von Frau Tulius
 		try {
 			FileWriter fw = new FileWriter("teilnehmer.csv");
@@ -232,8 +237,9 @@ public class VerwaltungController {
 		} catch (Exception e) {
 			System.out.println("Fehler beim datei Speichern");
 		}
+		*/
 		
-		/*
+		
 		// System.out.println("Speichern wurde geklickt");
 		// veränderte /gelöschte/ neu angelegte TN in Datei speichern
 		// FileWriter / BufferReader
@@ -270,16 +276,13 @@ public class VerwaltungController {
 	        e.printStackTrace();
 	        JOptionPane.showMessageDialog(view.getFrame(), "Fehler beim Speichern der Daten.", "Fehler", JOptionPane.ERROR_MESSAGE);
 	    }
-		*/
-		
-		
 		
 		
 	}
 	
 	public void perform_btn_loe() {
 		// das angeklickte Listenelement muss aus der Liste entfernt werden
-		
+		/*
 		// Lösung von Frau Tulius
 		// welches element wurde ausgewählt? getSelectedIndex()
 				int index= view.getListe().getSelectedIndex();
@@ -297,8 +300,8 @@ public class VerwaltungController {
 					// Anzeigen eines Popup-Fensters, wenn kein Element ausgewählt ist
 			        JOptionPane.showMessageDialog(view.getFrame(), "Kein Element ausgewählt zum Löschen.");
 				}
+		*/
 		
-		/*
 		// Meine Lösung mit der Hilfe von ChatGPT
 		// Überprüfen, ob ein Element ausgewählt ist
 		if(!view.getListe().isSelectionEmpty()) {
@@ -320,7 +323,7 @@ public class VerwaltungController {
 			// Anzeigen eines Popup-Fensters, wenn kein Element ausgewählt ist
 	        JOptionPane.showMessageDialog(view.getFrame(), "Kein Element ausgewählt zum Löschen.");
 		}
-		*/
+		updateListe();
 		
 	}
 	
