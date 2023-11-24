@@ -147,7 +147,7 @@ public class VerwaltungController {
 	        view.getTfName().setText("");
 	        view.getTfVorname().setText("");
 	        view.getVorlauf().setText(neuerTeilnehmer + " wurde als ein neuer Teilnehmer hinzugefügt");
-	        
+	        // System.out.println("neu:");
 	        // JOptionPane.showMessageDialog(view.getFrame(), "Ein Neues Element wurde hinzugefügt");
 	        
 	    }
@@ -211,6 +211,7 @@ public class VerwaltungController {
 	            String fuerVorlauf = geaenderterTeilnehmer.toString();
 
 	            // Teilnehmer in der Liste aktualisieren
+	            System.out.println("info:" + selectedIndex);
 	            view.getDlm().set(selectedIndex, geaenderterTeilnehmer);
 
 	            
@@ -284,7 +285,7 @@ public class VerwaltungController {
 	        writer.close();
 
 	        // Optional: Nachricht über erfolgreiche Speicherung anzeigen
-	        JOptionPane.showMessageDialog(view.getFrame(), "Daten wurden erfolgreich gespeichert.", "Speichern", JOptionPane.INFORMATION_MESSAGE);
+	        // JOptionPane.showMessageDialog(view.getFrame(), "Daten wurden erfolgreich gespeichert.", "Speichern", JOptionPane.INFORMATION_MESSAGE);
 	        view.getVorlauf().setText("Daten wurden erfolgreich gespeichert.");
 	    } catch (IOException e) {
 	        // Fehler abfangen

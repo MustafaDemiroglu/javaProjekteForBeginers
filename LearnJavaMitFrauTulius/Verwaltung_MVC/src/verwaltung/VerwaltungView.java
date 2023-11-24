@@ -3,9 +3,11 @@ package verwaltung;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.KeyEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,6 +18,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -71,19 +74,45 @@ public class VerwaltungView {
 		// Menu
 		menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
-		
+		// Menu Eintrag
 		menu = new JMenu("Eintrag");
-		menuBar.add(menu); 
-		
-		miNeu = new JMenuItem("Neu");
+		menuBar.add(menu);
+		menu.setMnemonic('E');
+		// Menu Items
+		// Neu Teilnehmer Menu Item
+		miNeu = new JMenuItem("Neu Teilnehmer", new ImageIcon("./src/verwaltung/neueTeilnehmer.png"));
+		KeyStroke kneu = KeyStroke.getKeyStroke("control shift N");
+		miNeu.setAccelerator(kneu);
+		miNeu.setEnabled(true);
+		miNeu.setMnemonic('N');
 		menu.add(miNeu);
-		miAendern = new JMenuItem("Ändern");
+		// Ändern Teilnehmer Menu Item
+		miAendern = new JMenuItem("Ändern", new ImageIcon("./src/verwaltung/aendern.png"));
+		KeyStroke kaen = KeyStroke.getKeyStroke("control shift A");
+		miAendern.setAccelerator(kaen);
+		miAendern.setEnabled(true);
+		miAendern.setMnemonic('A');
 		menu.add(miAendern);
-		miSpeichern = new JMenuItem("Speichern");
+		// Speichern Menu Item
+		miSpeichern = new JMenuItem("Speichern", new ImageIcon("./src/verwaltung/speichern.png"));
+		KeyStroke kspe = KeyStroke.getKeyStroke("control shift S");
+		miSpeichern.setAccelerator(kspe);
+		miSpeichern.setEnabled(true);
+		miSpeichern.setMnemonic('S');
 		menu.add(miSpeichern);
-		miLoeschen = new JMenuItem("Löschen");
+		// Löschen Menu Item
+		miLoeschen = new JMenuItem("Löschen", new ImageIcon("./src/verwaltung/loeschen.png"));
+		KeyStroke kloe = KeyStroke.getKeyStroke("control shift L");
+		miLoeschen.setAccelerator(kloe);
+		miLoeschen.setEnabled(true);
+		miLoeschen.setMnemonic('L');
 		menu.add(miLoeschen);
-		miVorlauf = new JMenuItem("Vorlauf leeren");
+		// Vorlauf Menu Item
+		miVorlauf = new JMenuItem("Vorlauf leeren", new ImageIcon("./src/verwaltung/vorlaufLeeren.png"));
+		KeyStroke kvor = KeyStroke.getKeyStroke("control shift V");
+		miVorlauf.setAccelerator(kvor);
+		miVorlauf.setEnabled(true);
+		miVorlauf.setMnemonic('V');
 		menu.add(miVorlauf);
 			
 		
@@ -107,13 +136,13 @@ public class VerwaltungView {
 		
 		// buttonPanel
 		buttonPanel = new JPanel(new FlowLayout());
-		btn_neu = new JButton("Neu");
+		btn_neu = new JButton("Neu",new ImageIcon("./src/verwaltung/neueTeilnehmer.png") );
 		buttonPanel.add(btn_neu);
-		btn_aen = new JButton("Ändern");
+		btn_aen = new JButton("Ändern", new ImageIcon("./src/verwaltung/aendern.png"));
 		buttonPanel.add(btn_aen);
-		btn_spe = new JButton("Speichern");
+		btn_spe = new JButton("Speichern", new ImageIcon("./src/verwaltung/speichern.png"));
 		buttonPanel.add(btn_spe);
-		btn_loe = new JButton("Löschen");
+		btn_loe = new JButton("Löschen", new ImageIcon("./src/verwaltung/loeschen.png"));
 		buttonPanel.add(btn_loe);
 		
 		// listePanel
@@ -137,9 +166,9 @@ public class VerwaltungView {
 		// vorlaufPanel
 		vorlaufPanel = new JPanel(new FlowLayout());
 		vorlaufPanel.add(new JLabel("Vorlauf"));
-		vorlauf =new JTextField(35);
+		vorlauf =new JTextField(42);
 		vorlaufPanel.add(vorlauf);
-		btn_vor = new JButton("Vorlauf leeren");
+		btn_vor = new JButton("Vorlauf leeren", new ImageIcon("./src/verwaltung/vorlaufLeeren.png"));
 		vorlaufPanel.add(btn_vor);
 		
 		
@@ -171,13 +200,15 @@ public class VerwaltungView {
 		miVorlauf.addActionListener(controller.getActionListener());
 		
 		
+		
+		
 		// CSV - Datei einlesen - leseDatei() in VerwaltunggsController
 		controller.leseDatei();
 		
 		// Fenster / frame konfigurieren
 		frame.add(mainPanel);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(600,500);
+		frame.setSize(700,500);
 		frame.setVisible(true);
 		
 		
