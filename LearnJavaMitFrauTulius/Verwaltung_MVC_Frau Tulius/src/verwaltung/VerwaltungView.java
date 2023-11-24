@@ -17,6 +17,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 import javax.swing.border.TitledBorder;
@@ -51,7 +52,8 @@ public class VerwaltungView {
 	private JTextField tfGruppe;
 	private JTextField tfName;
 	private JTextField tfVorname;
-	private JTextField vorlauf;
+	
+	private JTextArea vorlauf;
 	
 	private JButton btn_neu;
 	private JButton btn_aen;
@@ -166,7 +168,11 @@ public class VerwaltungView {
 		// vorlaufPanel
 		vorlaufPanel = new JPanel(new FlowLayout());
 		vorlaufPanel.add(new JLabel("Vorlauf"));
-		vorlauf =new JTextField(42);
+		vorlauf =new JTextArea();
+		vorlauf.setSize(460,40);    
+	    vorlauf.setLineWrap(true);
+	    vorlauf.setEditable(false);
+	    vorlauf.setVisible(true);
 		vorlaufPanel.add(vorlauf);
 		btn_vor = new JButton("Vorlauf leeren", new ImageIcon("./src/verwaltung/vorlaufLeeren.png"));
 		vorlaufPanel.add(btn_vor);
@@ -246,11 +252,11 @@ public class VerwaltungView {
 		this.tfVorname = tfVorname;
 	}
 	
-	public JTextField getVorlauf() {
+	public JTextArea getVorlauf() {
 		return vorlauf;
 	}
 
-	public void setVorlauf(JTextField vorlauf) {
+	public void setVorlauf(JTextArea vorlauf) {
 		this.vorlauf = vorlauf;
 	}
 
