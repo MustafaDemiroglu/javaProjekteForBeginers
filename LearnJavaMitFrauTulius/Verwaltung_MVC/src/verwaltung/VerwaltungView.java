@@ -27,9 +27,8 @@ public class VerwaltungView {
 	// Menu erstellen
 	private JMenu menu;
 	private JMenuBar menuBar;
-	private JMenuItem miNeu;
 	
-
+	private JMenuItem miNeu;
 	private JMenuItem miAendern;
 	private JMenuItem miSpeichern;
 	private JMenuItem miLoeschen;

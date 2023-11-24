@@ -221,7 +221,7 @@ public class VerwaltungController {
 	            view.getTfVorname().setText("");
 	            
 	            // JOptionPane.showMessageDialog(view.getFrame(), "Ausgewähltes Element wurde geändert");
-	            view.getVorlauf().setText(vorherigeVorlauf + " wurde als neuen Teilnehmer als " +fuerVorlauf +" geändert");
+	            view.getVorlauf().setText("alter Teilnehmer " +vorherigeVorlauf + " wurde als neuen Teilnehmer als " +fuerVorlauf +" geändert");
 	        }
 	    } else {
 	        // Anzeigen eines Popup-Fensters, wenn kein Element ausgewählt ist
@@ -284,7 +284,7 @@ public class VerwaltungController {
 	        writer.close();
 
 	        // Optional: Nachricht über erfolgreiche Speicherung anzeigen
-	        // JOptionPane.showMessageDialog(view.getFrame(), "Daten wurden erfolgreich gespeichert.", "Speichern", JOptionPane.INFORMATION_MESSAGE);
+	        JOptionPane.showMessageDialog(view.getFrame(), "Daten wurden erfolgreich gespeichert.", "Speichern", JOptionPane.INFORMATION_MESSAGE);
 	        view.getVorlauf().setText("Daten wurden erfolgreich gespeichert.");
 	    } catch (IOException e) {
 	        // Fehler abfangen
