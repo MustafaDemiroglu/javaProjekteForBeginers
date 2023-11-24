@@ -10,6 +10,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -20,6 +23,17 @@ import javax.swing.event.ListSelectionListener;
 public class VerwaltungView {
 
 	private JFrame frame;
+	
+	// Menu erstellen
+	private JMenu menu;
+	private JMenuBar menuBar;
+	private JMenuItem miNeu;
+	
+
+	private JMenuItem miAendern;
+	private JMenuItem miSpeichern;
+	private JMenuItem miLoeschen;
+	private JMenuItem miVorlauf;
 	
 	
 	private JPanel mainPanel;
@@ -42,7 +56,8 @@ public class VerwaltungView {
 	private JButton btn_spe;
 	private JButton btn_loe;
 	private JButton btn_vor;
-
+	
+	
 	private DefaultListModel dlm = new DefaultListModel();
 	private JList liste = new JList(dlm);
 	
@@ -53,6 +68,25 @@ public class VerwaltungView {
 	public VerwaltungView() {
 		
 		frame = new JFrame("Teilnehmerverwaltung");
+		
+		// Menu
+		menuBar = new JMenuBar();
+		frame.setJMenuBar(menuBar);
+		
+		menu = new JMenu("Eintrag");
+		menuBar.add(menu); 
+		
+		miNeu = new JMenuItem("Neu");
+		menu.add(miNeu);
+		miAendern = new JMenuItem("Ändern");
+		menu.add(miAendern);
+		miSpeichern = new JMenuItem("Speichern");
+		menu.add(miSpeichern);
+		miLoeschen = new JMenuItem("Löschen");
+		menu.add(miLoeschen);
+		miVorlauf = new JMenuItem("Vorlauf leeren");
+		menu.add(miVorlauf);
+			
 		
 		// labelPanel
 		labelPanel = new JPanel(new GridLayout(0,1,10,10));
@@ -129,6 +163,14 @@ public class VerwaltungView {
 		btn_spe.addActionListener(controller.getActionListener());
 		btn_loe.addActionListener(controller.getActionListener());
 		btn_vor.addActionListener(controller.getActionListener());
+		
+		// MenuListener eintragen
+		miNeu.addActionListener(controller.getActionListener());
+		miAendern.addActionListener(controller.getActionListener());
+		miSpeichern.addActionListener(controller.getActionListener());
+		miLoeschen.addActionListener(controller.getActionListener());
+		miVorlauf.addActionListener(controller.getActionListener());
+		
 		
 		// CSV - Datei einlesen - leseDatei() in VerwaltunggsController
 		controller.leseDatei();
@@ -245,6 +287,62 @@ public class VerwaltungView {
 
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
+	}
+	
+	public JMenu getMenu() {
+		return menu;
+	}
+
+	public void setMenu(JMenu menu) {
+		this.menu = menu;
+	}
+
+	public JMenuBar getMenuBar() {
+		return menuBar;
+	}
+
+	public void setMenuBar(JMenuBar menuBar) {
+		this.menuBar = menuBar;
+	}
+
+	public JMenuItem getMiNeu() {
+		return miNeu;
+	}
+
+	public void setMiNeu(JMenuItem miNeu) {
+		this.miNeu = miNeu;
+	}
+
+	public JMenuItem getMiAendern() {
+		return miAendern;
+	}
+
+	public void setMiAendern(JMenuItem miAendern) {
+		this.miAendern = miAendern;
+	}
+
+	public JMenuItem getMiSpeichern() {
+		return miSpeichern;
+	}
+
+	public void setMiSpeichern(JMenuItem miSpeichern) {
+		this.miSpeichern = miSpeichern;
+	}
+
+	public JMenuItem getMiLoeschen() {
+		return miLoeschen;
+	}
+
+	public void setMiLoeschen(JMenuItem miLoeschen) {
+		this.miLoeschen = miLoeschen;
+	}
+
+	public JMenuItem getMiVorlauf() {
+		return miVorlauf;
+	}
+
+	public void setMiVorlauf(JMenuItem miVorlauf) {
+		this.miVorlauf = miVorlauf;
 	}
 
 

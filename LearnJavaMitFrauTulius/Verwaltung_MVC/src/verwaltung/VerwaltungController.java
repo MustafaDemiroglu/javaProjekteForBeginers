@@ -63,7 +63,9 @@ public class VerwaltungController {
 			view.getTfGruppe().setText(tn.getGruppe());
 			view.getTfName().setText(tn.getName());
 			view.getTfVorname().setText(tn.getVorname());
-			
+			// Vorlauf aktualisieren
+			String aktuelleTeilnehmer = tn.toString();
+			view.getVorlauf().setText(aktuelleTeilnehmer + " wurde ausgewählt und wird bearbeitet");
 		}
 	}
 	
@@ -75,19 +77,19 @@ public class VerwaltungController {
 			// Listener für Buttons
 			public void actionPerformed(ActionEvent e) {
 				// Unterscheiden welcher Button Event ausgelöst
-				if(e.getSource() == view.getBtn_neu()) {
+				if(e.getSource() == view.getBtn_neu() || e.getSource() == view.getMiNeu()) {
 					perform_btn_neu();
 				}
-				if(e.getSource() == view.getBtn_aen()) {
+				if(e.getSource() == view.getBtn_aen() || e.getSource() == view.getMiAendern()) {
 					perform_btn_aen();
 				}
-				if(e.getSource() == view.getBtn_spe()) {
+				if(e.getSource() == view.getBtn_spe() || e.getSource() == view.getMiSpeichern()) {
 					perform_btn_spe();
 				}
-				if(e.getSource() == view.getBtn_loe()) {
+				if(e.getSource() == view.getBtn_loe() || e.getSource() == view.getMiLoeschen()) {
 					perform_btn_loe();
 				}
-				if(e.getSource() == view.getBtn_vor()) {
+				if(e.getSource() == view.getBtn_vor() || e.getSource() == view.getMiVorlauf()) {
 					perform_btn_vor();
 				}
 				
@@ -144,7 +146,7 @@ public class VerwaltungController {
 	        view.getTfGruppe().setText("");
 	        view.getTfName().setText("");
 	        view.getTfVorname().setText("");
-	        view.getVorlauf().setText(neuerTeilnehmer + "wurde als ein neuer Teilnehmer hinzugefügt");
+	        view.getVorlauf().setText(neuerTeilnehmer + " wurde als ein neuer Teilnehmer hinzugefügt");
 	        
 	        // JOptionPane.showMessageDialog(view.getFrame(), "Ein Neues Element wurde hinzugefügt");
 	        
