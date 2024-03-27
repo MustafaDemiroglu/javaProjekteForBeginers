@@ -5,6 +5,6 @@
  * @author IT_Admin
  *
  */
-module Lernfeld8 {
+module Aufgabe_Datenbank {
 	requires java.desktop;
 }
