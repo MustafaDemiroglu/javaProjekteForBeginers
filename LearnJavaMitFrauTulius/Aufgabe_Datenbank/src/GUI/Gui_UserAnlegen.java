@@ -1,5 +1,6 @@
-package UserDB;
- 
+package GUI;
+
+
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import javax.swing.JButton;
@@ -8,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
  
-public class View {
+public class Gui_UserAnlegen {
  
 	JFrame logframe = new JFrame("Einloggen");
 	JFrame regframe = new JFrame("Nutzer registrieren");
@@ -43,7 +44,7 @@ public class View {
 	
 	// private controller controller = new controller(this);
 	
-	View() {
+	Gui_UserAnlegen() {
 		
 		logpanel = new JPanel(new GridLayout(0, 2, 10, 10));
 		logpanel.add(user);
@@ -56,9 +57,7 @@ public class View {
 		logframe.add(logpanel);
 		logframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		logframe.setSize(500, 500);
-		logframe.setVisible(true);
-		
-		
+		logframe.setVisible(true);		
 	}
 	
 }
